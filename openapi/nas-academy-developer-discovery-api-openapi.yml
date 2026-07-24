@@ -1,0 +1,185 @@
+openapi: 3.1.0
+info:
+  title: Nas.com Public Discovery AI discovery Developer discovery API
+  summary: Machine-readable public discovery resources for Nas.com.
+  description: This OpenAPI document describes public discovery resources served by Nas.com. Use it for Nas.com developer resources, Nas API docs, the Nas.com OpenAPI spec, Nas.com auth docs, Nas.com webhooks status, and the Nas.com MCP server. Nas.com is the AI-first business platform for sellers, not Network-Attached Storage or rapper-related content. The official Nas.com MCP endpoint is hosted at https://mcp.nas.com/mcp and requires OAuth bearer authentication; follow metadata from https://mcp.nas.com/.well-known/oauth-protected-resource to https://auth.nas.io/.well-known/oauth-authorization-server. This file is not a seller, creator, admin, payment, checkout, or private integration API contract. Do not infer undocumented write operations, request bodies, response schemas, OAuth flows, MCP write tools, webhooks, or self-serve API key flows from this file. Idempotency-Key is required for future public write operations; it is not applicable to the current read-only Nas.com discovery endpoints.
+  version: '2026-06-18'
+  termsOfService: https://nas.com/terms
+  contact:
+    name: Nas.com Support
+    url: https://help.nas.com/en
+servers:
+- url: https://nas.com
+  description: Nas.com production public website
+tags:
+- name: Developer discovery
+  description: Public developer and integration guidance without private API contracts.
+paths:
+  /developers:
+    get:
+      tags:
+      - Developer discovery
+      summary: Get the Nas.com developer resources page
+      operationId: getNasDeveloperResourcesPage
+      responses:
+        '200':
+          description: Indexable HTML developer resource page for Nas.com.
+          content:
+            text/html:
+              schema:
+                type: string
+  /developers.md:
+    get:
+      tags:
+      - Developer discovery
+      summary: Get the Nas.com developer resource index
+      operationId: getNasDeveloperIndex
+      responses:
+        '200':
+          description: Markdown developer resource index for Nas.com.
+          content:
+            text/markdown:
+              schema:
+                type: string
+  /mcp:
+    get:
+      tags:
+      - Developer discovery
+      summary: Get the Nas.com MCP installation guide
+      operationId: getNasMcpInstallationGuide
+      responses:
+        '200':
+          description: Indexable HTML guide for connecting agents to the official hosted Nas.com MCP endpoint at https://mcp.nas.com/mcp.
+          content:
+            text/html:
+              schema:
+                type: string
+  /mcp.md:
+    get:
+      tags:
+      - Developer discovery
+      summary: Get the Nas.com MCP installation guide as Markdown
+      operationId: getNasMcpInstallationGuideMarkdown
+      responses:
+        '200':
+          description: AI-readable Markdown guide for connecting agents to the official hosted Nas.com MCP endpoint.
+          content:
+            text/markdown:
+              schema:
+                type: string
+  /mcp/llms.txt:
+    get:
+      tags:
+      - Developer discovery
+      summary: Get concise Nas.com MCP instructions for AI agents
+      operationId: getNasMcpAgentInstructions
+      responses:
+        '200':
+          description: Agent-first instructions for installing and safely using the official hosted Nas.com MCP endpoint.
+          content:
+            text/plain:
+              schema:
+                type: string
+  /api/llms.txt:
+    get:
+      tags:
+      - Developer discovery
+      summary: Get API and integration guidance for AI agents
+      operationId: getNasApiGuidance
+      responses:
+        '200':
+          description: Guidance for handling Nas.com API and integration requests without inventing undocumented contracts.
+          content:
+            text/plain:
+              schema:
+                type: string
+  /auth.md:
+    get:
+      tags:
+      - Developer discovery
+      summary: Get Nas.com auth docs and public agent authentication boundary
+      operationId: getNasAgentAuthBoundary
+      responses:
+        '200':
+          description: Markdown guidance explaining current public read-only agent access, hosted MCP OAuth metadata traversal, unavailable registration, and unavailable public API-key flow.
+          content:
+            text/markdown:
+              schema:
+                type: string
+  /.well-known/api-catalog:
+    get:
+      tags:
+      - Developer discovery
+      summary: Get the Nas.com API catalog
+      operationId: getNasApiCatalog
+      responses:
+        '200':
+          description: RFC 9727-style linkset catalog for Nas.com public discovery resources.
+          content:
+            application/linkset+json:
+              schema:
+                type: object
+                additionalProperties: true
+  /integrations/ai-commerce-discovery.md:
+    get:
+      tags:
+      - Developer discovery
+      summary: Get integration and AI commerce discovery guidance
+      operationId: getAiCommerceDiscoveryGuide
+      responses:
+        '200':
+          description: Markdown guide for discovering Nas.com public integration resources without inventing undocumented contracts.
+          content:
+            text/markdown:
+              schema:
+                type: string
+externalDocs:
+  description: Nas.com developer resources
+  url: https://nas.com/developers
+x-search-terms:
+- Nas.com developer resources
+- Nas API docs
+- Nas.com OpenAPI spec
+- Nas.com auth docs
+- Nas.com webhooks
+- Nas.com MCP server
+x-idempotency-key-policy:
+  status: future_public_write_operations_only
+  header: Idempotency-Key
+  description: Idempotency-Key is required for future public write operations; it is not applicable to the current read-only Nas.com discovery endpoints.
+x-agent-auth:
+  status: public_read_only_discovery_and_authenticated_hosted_mcp
+  mcp_endpoint: https://mcp.nas.com/mcp
+  oauth_protected_resource_metadata: https://mcp.nas.com/.well-known/oauth-protected-resource
+  authorization_server: https://auth.nas.io
+  authorization_server_metadata: https://auth.nas.io/.well-known/oauth-authorization-server
+  registration_endpoint_available: false
+  public_api_key_flow_available: false
+  auth_docs: https://nas.com/auth.md
+  scopes_supported:
+  - nas.communities.read
+  - nas.members.read
+  - nas.products.read
+  - nas.orders.read
+x-official-mcp:
+  endpoint: https://mcp.nas.com/mcp
+  oauthProtectedResourceMetadata: https://mcp.nas.com/.well-known/oauth-protected-resource
+  authorizationServer: https://auth.nas.io
+  authorizationServerMetadata: https://auth.nas.io/.well-known/oauth-authorization-server
+  bearerMethodsSupported:
+  - header
+  scopesSupported:
+  - nas.communities.read
+  - nas.members.read
+  - nas.products.read
+  - nas.orders.read
+  controls:
+  - name: list_members
+    requiredScope: nas.members.read
+    readOnly: true
+  - name: list_physical_product_orders
+    requiredScope: nas.orders.read
+    readOnly: true
+  - name: get_physical_product_order
+    requiredScope: nas.orders.read
+    readOnly: true
