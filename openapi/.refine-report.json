@@ -1,0 +1,16 @@
+{
+  "provider": "nas-academy",
+  "sources": [
+    "nas-academy-ai-discovery-api-openapi.yml",
+    "nas-academy-developer-discovery-api-openapi.yml"
+  ],
+  "outputs": [
+    "nas-academy-ai-discovery-api-openapi.yml",
+    "nas-academy-developer-discovery-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

@@ -1,0 +1,48 @@
+generated: '2026-07-20'
+method: searched
+host: https://nas.com
+documents:
+  - path: /.well-known/api-catalog
+    status: 200
+    file: nas-academy-api-catalog.json
+    spec: RFC 9727 API catalog (linkset)
+  - path: /.well-known/agent.json
+    status: 200
+    file: nas-academy-agent.json
+    spec: Agent discovery metadata
+  - path: /.well-known/agent-card.json
+    status: 200
+    file: nas-academy-agent-card.json
+    spec: A2A-style agent card
+  - path: /.well-known/mcp.json
+    status: 200
+    file: nas-academy-mcp.json
+    spec: MCP manifest
+  - path: /.well-known/mcp/server-card.json
+    status: 200
+    file: nas-academy-mcp-server-card.json
+    spec: MCP server card
+  - path: /.well-known/agent-skills/index.json
+    status: 200
+    file: nas-academy-agent-skills-index.json
+    spec: agentskills.io discovery 0.2.0
+  - path: /.well-known/entity.json
+    status: 200
+    file: nas-academy-entity.json
+    spec: schema.org Organization JSON-LD
+  - path: /.well-known/public-pages.json
+    status: 200
+    file: null
+    spec: Public page route-family catalog
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    note: OAuth authorization-server metadata is served from https://auth.nas.io/.well-known/oauth-authorization-server (200), not nas.com.
+external_documents:
+  - path: https://auth.nas.io/.well-known/oauth-authorization-server
+    status: 200
+    file: nas-academy-oauth-authorization-server.json
+    spec: RFC 8414 OAuth authorization-server metadata

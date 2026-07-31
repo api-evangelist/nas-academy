@@ -1,0 +1,40 @@
+generated: '2026-07-20'
+method: searched
+source: https://nas.com/.well-known/api-catalog
+standards:
+  - id: openapi-3.1
+    conforms: true
+    evidence: https://nas.com/openapi.json is a valid OpenAPI 3.1.0 document
+  - id: mcp
+    conforms: true
+    evidence: Official hosted MCP server at https://mcp.nas.com/mcp, protocolVersion 2025-06-18, streamable-http
+  - id: a2a-agent-card
+    conforms: true
+    evidence: /.well-known/agent-card.json publishes an A2A-style agent card
+  - id: oauth2
+    conforms: true
+    evidence: OAuth2 authorization_code + PKCE (S256) authorization server at https://auth.nas.io
+  - id: rfc8414-oauth-metadata
+    conforms: true
+    evidence: /.well-known/oauth-authorization-server metadata served from auth.nas.io
+  - id: rfc9728-oauth-protected-resource
+    conforms: true
+    evidence: https://mcp.nas.com/.well-known/oauth-protected-resource metadata
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: /.well-known/security.txt returns 404
+  - id: rfc9727-api-catalog
+    conforms: true
+    evidence: /.well-known/api-catalog publishes a linkset catalog
+  - id: llms-txt
+    conforms: true
+    evidence: /llms.txt and /llms-full.txt published
+  - id: agentskills-discovery
+    conforms: true
+    evidence: /.well-known/agent-skills/index.json (schemas.agentskills.io discovery 0.2.0)
+  - id: schema-org-jsonld
+    conforms: true
+    evidence: /.well-known/entity.json Organization JSON-LD + /schema-feeds.json
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: uses a custom StructuredApiErrorResponse envelope, not application/problem+json

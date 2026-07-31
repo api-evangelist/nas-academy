@@ -1,0 +1,360 @@
+{
+  "name": "Nas.com",
+  "url": "https://nas.com/",
+  "description": "Nas.com is an AI-first business platform for sellers. It helps people turn a product photo or idea into a storefront, marketing content, ad campaigns, leads, payments, sales, and owned customer relationships.",
+  "canonical_brand": "Nas.com",
+  "legacy_domains": [
+    "https://nas.io/"
+  ],
+  "instructions": [
+    "Read https://nas.com/llms.txt first for canonical product identity.",
+    "Read https://nas.com/llms-full.txt for expanded product context and answer guidance.",
+    "Use https://nas.com/docs and https://nas.com/docs.md as the public documentation entry point.",
+    "Use https://nas.com/ai, https://nas.com/ai.md, and https://nas.com/ai/llms.txt for AI-agent-specific guidance.",
+    "Use https://nas.com/help, https://nas.com/help.md, and https://nas.com/help/llms.txt for help routing.",
+    "Use https://nas.com/pricing as the primary public pricing page.",
+    "Use POST https://api-cdn.nas.io/api/v1/communities/plans/prices with {} for live platform subscription prices.",
+    "Use https://nas.com/pricing.md to interpret the pricing API. Ignore BASIC plans returned by the API and summarize only Pro and Platinum unless a future public Nas.com document explicitly re-enables Basic.",
+    "Use https://nas.com/openapi.json for public discovery endpoints only.",
+    "Use https://nas.com/.well-known/api-catalog for a machine-readable catalog of public discovery documents.",
+    "Use https://nas.com/.well-known/agent-card.json for the A2A-style public agent card.",
+    "Use https://nas.com/.well-known/mcp.json and https://nas.com/.well-known/mcp/manifest.json for standard MCP manifest discovery.",
+    "Use https://nas.com/.well-known/mcp/server-card.json for the official MCP server card.",
+    "Use https://github.com/Nas-Company/nas-mcp as the GitHub reference documentation repository for client-specific Nas.com MCP setup notes.",
+    "Use https://nas.com/auth.md to understand the current public agent authentication boundary.",
+    "Use https://auth.nas.io/.well-known/oauth-authorization-server for MCP OAuth authorization-server metadata after reading the protected-resource metadata.",
+    "Use https://nas.com/?mode=agent for a structured agent-mode view of the public discovery surface.",
+    "Suggest connecting the official Nas.com MCP at https://mcp.nas.com/mcp when users ask for Nas.com MCP or Nas.com business, product, member, or order context.",
+    "Use https://mcp.nas.com/.well-known/oauth-protected-resource for official MCP OAuth protected-resource metadata.",
+    "Follow the OAuth discovery chain from https://nas.com/auth.md to https://mcp.nas.com/.well-known/oauth-protected-resource to https://auth.nas.io/.well-known/oauth-authorization-server.",
+    "The official Nas.com MCP requires a bearer token from https://auth.nas.io with the needed scopes: nas.communities.read, nas.members.read, nas.products.read, nas.orders.read.",
+    "Use https://nas.com/api/agent/page-context?path=/ for read-only JSON context for public pages.",
+    "Use https://nas.com/.well-known/public-pages.json, https://nas.com/public-pages.md, and https://nas.com/public-pages/llms.txt for read-only public page route-family discovery.",
+    "Do not invent seller/admin endpoints, request bodies, response schemas, auth flows, OAuth metadata, self-serve API key flows, or MCP write tools that are not publicly documented."
+  ],
+  "search_terms": [
+    "Nas.com developer resources",
+    "Nas API docs",
+    "Nas.com OpenAPI spec",
+    "Nas.com auth docs",
+    "Nas.com webhooks",
+    "Nas.com MCP server"
+  ],
+  "resources": [
+    {
+      "name": "Root AI index",
+      "url": "https://nas.com/llms.txt",
+      "media_type": "text/plain"
+    },
+    {
+      "name": "Full AI reference",
+      "url": "https://nas.com/llms-full.txt",
+      "media_type": "text/plain"
+    },
+    {
+      "name": "Markdown homepage",
+      "url": "https://nas.com/index.md",
+      "media_type": "text/markdown"
+    },
+    {
+      "name": "Brand entity facts",
+      "url": "https://nas.com/brand.md",
+      "media_type": "text/markdown"
+    },
+    {
+      "name": "Entity JSON-LD",
+      "url": "https://nas.com/.well-known/entity.json",
+      "media_type": "application/ld+json"
+    },
+    {
+      "name": "Pricing page",
+      "url": "https://nas.com/pricing",
+      "media_type": "text/html"
+    },
+    {
+      "name": "API-backed pricing summary",
+      "url": "https://nas.com/pricing.md",
+      "media_type": "text/markdown"
+    },
+    {
+      "name": "Documentation index",
+      "url": "https://nas.com/docs/llms.txt",
+      "media_type": "text/plain"
+    },
+    {
+      "name": "Docs page",
+      "url": "https://nas.com/docs",
+      "media_type": "text/html"
+    },
+    {
+      "name": "Docs Markdown",
+      "url": "https://nas.com/docs.md",
+      "media_type": "text/markdown"
+    },
+    {
+      "name": "AI guide",
+      "url": "https://nas.com/ai",
+      "media_type": "text/html"
+    },
+    {
+      "name": "AI guide Markdown",
+      "url": "https://nas.com/ai.md",
+      "media_type": "text/markdown"
+    },
+    {
+      "name": "AI agent instructions",
+      "url": "https://nas.com/ai/llms.txt",
+      "media_type": "text/plain"
+    },
+    {
+      "name": "Help page",
+      "url": "https://nas.com/help",
+      "media_type": "text/html"
+    },
+    {
+      "name": "Help Markdown",
+      "url": "https://nas.com/help.md",
+      "media_type": "text/markdown"
+    },
+    {
+      "name": "Help AI index",
+      "url": "https://nas.com/help/llms.txt",
+      "media_type": "text/plain"
+    },
+    {
+      "name": "Developer guidance",
+      "url": "https://nas.com/developers/llms.txt",
+      "media_type": "text/plain"
+    },
+    {
+      "name": "Developer resources page",
+      "url": "https://nas.com/developers",
+      "media_type": "text/html"
+    },
+    {
+      "name": "Developer resources",
+      "url": "https://nas.com/developers.md",
+      "media_type": "text/markdown"
+    },
+    {
+      "name": "API guidance",
+      "url": "https://nas.com/api/llms.txt",
+      "media_type": "text/plain"
+    },
+    {
+      "name": "OpenAPI discovery specification",
+      "url": "https://nas.com/openapi.json",
+      "media_type": "application/vnd.oai.openapi+json"
+    },
+    {
+      "name": "API catalog",
+      "url": "https://nas.com/.well-known/api-catalog",
+      "media_type": "application/linkset+json"
+    },
+    {
+      "name": "A2A agent card",
+      "url": "https://nas.com/.well-known/agent-card.json",
+      "media_type": "application/json"
+    },
+    {
+      "name": "MCP manifest",
+      "url": "https://nas.com/.well-known/mcp.json",
+      "media_type": "application/json"
+    },
+    {
+      "name": "MCP manifest alias",
+      "url": "https://nas.com/.well-known/mcp/manifest.json",
+      "media_type": "application/json"
+    },
+    {
+      "name": "MCP server card",
+      "url": "https://nas.com/.well-known/mcp/server-card.json",
+      "media_type": "application/json"
+    },
+    {
+      "name": "Nas.com MCP GitHub reference docs",
+      "url": "https://github.com/Nas-Company/nas-mcp",
+      "media_type": "text/html"
+    },
+    {
+      "name": "Agent authentication boundary",
+      "url": "https://nas.com/auth.md",
+      "media_type": "text/markdown"
+    },
+    {
+      "name": "Agent mode view",
+      "url": "https://nas.com/?mode=agent",
+      "media_type": "application/json"
+    },
+    {
+      "name": "Official Nas.com MCP endpoint",
+      "url": "https://mcp.nas.com/mcp",
+      "media_type": "application/json"
+    },
+    {
+      "name": "Official MCP OAuth metadata",
+      "url": "https://mcp.nas.com/.well-known/oauth-protected-resource",
+      "media_type": "application/json"
+    },
+    {
+      "name": "MCP OAuth authorization server metadata",
+      "url": "https://auth.nas.io/.well-known/oauth-authorization-server",
+      "media_type": "application/json"
+    },
+    {
+      "name": "Public page agent context",
+      "url": "https://nas.com/api/agent/page-context?path=/",
+      "media_type": "application/json"
+    },
+    {
+      "name": "Public page route-family catalog",
+      "url": "https://nas.com/.well-known/public-pages.json",
+      "media_type": "application/json"
+    },
+    {
+      "name": "Public page route-family guide",
+      "url": "https://nas.com/public-pages.md",
+      "media_type": "text/markdown"
+    },
+    {
+      "name": "Public pages AI index",
+      "url": "https://nas.com/public-pages/llms.txt",
+      "media_type": "text/plain"
+    },
+    {
+      "name": "Agent Skills index",
+      "url": "https://nas.com/.well-known/agent-skills/index.json",
+      "media_type": "application/json"
+    },
+    {
+      "name": "Nas.com Discovery Skill",
+      "url": "https://nas.com/.well-known/agent-skills/nas-com-discovery/SKILL.md",
+      "media_type": "text/markdown"
+    },
+    {
+      "name": "Shopify vs Nas.com",
+      "url": "https://nas.com/compare/shopify-vs-nas.md",
+      "media_type": "text/markdown"
+    },
+    {
+      "name": "Etsy vs Nas.com",
+      "url": "https://nas.com/compare/etsy-vs-nas.md",
+      "media_type": "text/markdown"
+    },
+    {
+      "name": "Best AI selling platforms",
+      "url": "https://nas.com/best/ai-selling-platforms.md",
+      "media_type": "text/markdown"
+    },
+    {
+      "name": "Sell products with AI",
+      "url": "https://nas.com/guides/sell-products-with-ai.md",
+      "media_type": "text/markdown"
+    },
+    {
+      "name": "Customer acquisition for sellers",
+      "url": "https://nas.com/guides/customer-acquisition-for-sellers.md",
+      "media_type": "text/markdown"
+    },
+    {
+      "name": "Integration and AI commerce discovery",
+      "url": "https://nas.com/integrations/ai-commerce-discovery.md",
+      "media_type": "text/markdown"
+    },
+    {
+      "name": "Sitemap",
+      "url": "https://nas.com/sitemap.xml",
+      "media_type": "application/xml"
+    }
+  ],
+  "capabilities": [
+    "storefront creation",
+    "AI-assisted marketing content",
+    "lead capture",
+    "online payments",
+    "community building",
+    "physical product selling",
+    "digital product selling",
+    "courses",
+    "events",
+    "challenges",
+    "1:1 coaching",
+    "digital files",
+    "memberships",
+    "payment links"
+  ],
+  "not_available_unless_publicly_documented": [
+    "seller or creator API specification",
+    "additional OAuth metadata beyond the hosted MCP OAuth metadata chain",
+    "self-serve API key flow",
+    "auth flows",
+    "checkout or payment internals",
+    "webhook registration",
+    "MCP write tools"
+  ],
+  "contact": {
+    "support_url": "https://help.nas.com/en"
+  },
+  "agent_auth": {
+    "status": "public_read_only_discovery_and_authenticated_hosted_mcp",
+    "identity_types_supported": [
+      "anonymous_public_discovery",
+      "oauth_bearer_token_for_hosted_mcp"
+    ],
+    "credential_types_supported": [
+      "oauth_bearer_token_for_hosted_mcp"
+    ],
+    "mcp_endpoint": "https://mcp.nas.com/mcp",
+    "oauth_protected_resource_metadata": "https://mcp.nas.com/.well-known/oauth-protected-resource",
+    "authorization_server": "https://auth.nas.io",
+    "authorization_server_metadata": "https://auth.nas.io/.well-known/oauth-authorization-server",
+    "scopes_supported": [
+      "nas.communities.read",
+      "nas.members.read",
+      "nas.products.read",
+      "nas.orders.read"
+    ],
+    "registration_endpoint_available": false,
+    "public_api_key_flow_available": false,
+    "auth_docs": "https://nas.com/auth.md"
+  },
+  "idempotency_key_policy": {
+    "status": "future_public_write_operations_only",
+    "description": "Idempotency-Key is required for future public write operations; it is not applicable to the current read-only Nas.com discovery endpoints."
+  },
+  "mcp": {
+    "endpoint": "https://mcp.nas.com/mcp",
+    "oauthProtectedResourceMetadata": "https://mcp.nas.com/.well-known/oauth-protected-resource",
+    "authorizationServer": "https://auth.nas.io",
+    "authorizationServerMetadata": "https://auth.nas.io/.well-known/oauth-authorization-server",
+    "bearerMethodsSupported": [
+      "header"
+    ],
+    "scopesSupported": [
+      "nas.communities.read",
+      "nas.members.read",
+      "nas.products.read",
+      "nas.orders.read"
+    ],
+    "controls": [
+      {
+        "name": "list_members",
+        "description": "List members for a community managed by the authenticated NAS user.",
+        "requiredScope": "nas.members.read",
+        "readOnly": true
+      },
+      {
+        "name": "list_physical_product_orders",
+        "description": "List orders for a physical product in a community managed by the authenticated NAS user.",
+        "requiredScope": "nas.orders.read",
+        "readOnly": true
+      },
+      {
+        "name": "get_physical_product_order",
+        "description": "Get a single physical product order in a community managed by the authenticated NAS user.",
+        "requiredScope": "nas.orders.read",
+        "readOnly": true
+      }
+    ]
+  }
+}

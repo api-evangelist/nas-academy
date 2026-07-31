@@ -1,0 +1,22 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Nas.com Public Discovery API
+  version: 1.0.0
+extends: openapi/nas-academy-openapi-original.json
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: nas-academy
+      x-apievangelist-canonical-brand: Nas.com
+      x-apievangelist-legacy-domains: [nas.io, nasacademy.com, nasdaily.com]
+      x-apievangelist-surface: public-discovery-read-only
+      x-apievangelist-mcp: https://mcp.nas.com/mcp
+      x-apievangelist-agent-native: true
+  - target: $.info
+    update:
+      x-apievangelist-tags:
+        - AI
+        - Agents
+        - MCP
+        - Discovery
+        - Creators

@@ -1,0 +1,197 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://nas.com/",
+      "service-desc": [
+        {
+          "href": "https://nas.com/openapi.json",
+          "type": "application/vnd.oai.openapi+json",
+          "title": "Nas.com Public Discovery API"
+        }
+      ],
+      "describedby": [
+        {
+          "href": "https://nas.com/.well-known/agent.json",
+          "type": "application/json",
+          "title": "Nas.com agent discovery"
+        },
+        {
+          "href": "https://nas.com/.well-known/agent-card.json",
+          "type": "application/json",
+          "title": "Nas.com A2A agent card"
+        },
+        {
+          "href": "https://nas.com/.well-known/mcp.json",
+          "type": "application/json",
+          "title": "Nas.com MCP manifest"
+        },
+        {
+          "href": "https://nas.com/.well-known/mcp/manifest.json",
+          "type": "application/json",
+          "title": "Nas.com MCP manifest alias"
+        },
+        {
+          "href": "https://nas.com/.well-known/mcp/server-card.json",
+          "type": "application/json",
+          "title": "Nas.com MCP server card"
+        },
+        {
+          "href": "https://nas.com/auth.md",
+          "type": "text/markdown",
+          "title": "Nas.com agent authentication boundary"
+        },
+        {
+          "href": "https://nas.com/.well-known/public-pages.json",
+          "type": "application/json",
+          "title": "Nas.com public page catalog"
+        }
+      ],
+      "service": [
+        {
+          "href": "https://mcp.nas.com/mcp",
+          "type": "application/json",
+          "title": "Official Nas.com MCP endpoint"
+        },
+        {
+          "href": "https://mcp.nas.com/.well-known/oauth-protected-resource",
+          "type": "application/json",
+          "title": "Official MCP OAuth protected-resource metadata"
+        },
+        {
+          "href": "https://auth.nas.io/.well-known/oauth-authorization-server",
+          "type": "application/json",
+          "title": "Nas.com MCP OAuth authorization-server metadata"
+        },
+        {
+          "href": "https://nas.com/.well-known/mcp.json",
+          "type": "application/json",
+          "title": "Nas.com MCP manifest"
+        },
+        {
+          "href": "https://nas.com/.well-known/mcp/manifest.json",
+          "type": "application/json",
+          "title": "Nas.com MCP manifest alias"
+        }
+      ],
+      "alternate": [
+        {
+          "href": "https://nas.com/docs",
+          "type": "text/html",
+          "title": "Nas.com Docs"
+        },
+        {
+          "href": "https://nas.com/docs.md",
+          "type": "text/markdown",
+          "title": "Nas.com Docs Markdown"
+        },
+        {
+          "href": "https://nas.com/docs/llms.txt",
+          "type": "text/plain",
+          "title": "Nas.com documentation AI index"
+        },
+        {
+          "href": "https://nas.com/ai",
+          "type": "text/html",
+          "title": "Nas.com AI guide"
+        },
+        {
+          "href": "https://nas.com/ai.md",
+          "type": "text/markdown",
+          "title": "Nas.com AI guide Markdown"
+        },
+        {
+          "href": "https://nas.com/ai/llms.txt",
+          "type": "text/plain",
+          "title": "Nas.com AI agent instructions"
+        },
+        {
+          "href": "https://nas.com/help",
+          "type": "text/html",
+          "title": "Nas.com Help"
+        },
+        {
+          "href": "https://nas.com/help.md",
+          "type": "text/markdown",
+          "title": "Nas.com Help Markdown"
+        },
+        {
+          "href": "https://nas.com/help/llms.txt",
+          "type": "text/plain",
+          "title": "Nas.com Help AI index"
+        },
+        {
+          "href": "https://nas.com/developers",
+          "type": "text/html",
+          "title": "Nas.com developer resources page"
+        },
+        {
+          "href": "https://nas.com/mcp",
+          "type": "text/html",
+          "title": "Nas.com MCP installation guide"
+        },
+        {
+          "href": "https://nas.com/llms.txt",
+          "type": "text/plain",
+          "title": "Nas.com AI index"
+        },
+        {
+          "href": "https://nas.com/mcp/llms.txt",
+          "type": "text/plain",
+          "title": "Nas.com MCP agent instructions"
+        },
+        {
+          "href": "https://nas.com/api/llms.txt",
+          "type": "text/plain",
+          "title": "Nas API docs and integration guidance"
+        },
+        {
+          "href": "https://nas.com/developers.md",
+          "type": "text/markdown",
+          "title": "Nas.com developer resources"
+        },
+        {
+          "href": "https://nas.com/mcp.md",
+          "type": "text/markdown",
+          "title": "Nas.com MCP installation guide Markdown"
+        },
+        {
+          "href": "https://github.com/Nas-Company/nas-mcp",
+          "type": "text/html",
+          "title": "Nas.com MCP GitHub reference docs"
+        }
+      ],
+      "agent_auth": {
+        "href": "https://nas.com/auth.md",
+        "type": "text/markdown",
+        "title": "Nas.com auth docs and hosted MCP authentication boundary"
+      }
+    }
+  ],
+  "agent_auth": {
+    "status": "public_read_only_discovery_and_authenticated_hosted_mcp",
+    "mcp_endpoint": "https://mcp.nas.com/mcp",
+    "oauth_protected_resource_metadata": "https://mcp.nas.com/.well-known/oauth-protected-resource",
+    "authorization_server": "https://auth.nas.io",
+    "authorization_server_metadata": "https://auth.nas.io/.well-known/oauth-authorization-server",
+    "registration_endpoint_available": false,
+    "public_api_key_flow_available": false,
+    "scopes_supported": [
+      "nas.communities.read",
+      "nas.members.read",
+      "nas.products.read",
+      "nas.orders.read"
+    ]
+  },
+  "idempotency_key_policy": {
+    "status": "future_public_write_operations_only",
+    "description": "Idempotency-Key is required for future public write operations; it is not applicable to the current read-only Nas.com discovery endpoints."
+  },
+  "search_terms": [
+    "Nas.com developer resources",
+    "Nas API docs",
+    "Nas.com OpenAPI spec",
+    "Nas.com auth docs",
+    "Nas.com webhooks",
+    "Nas.com MCP server"
+  ]
+}

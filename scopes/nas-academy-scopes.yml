@@ -1,0 +1,30 @@
+generated: '2026-07-20'
+method: searched
+source: https://auth.nas.io/.well-known/oauth-authorization-server
+docs: https://nas.com/auth.md
+schemes:
+  - name: OAuth2
+    type: oauth2
+    source: https://auth.nas.io/.well-known/oauth-authorization-server
+    issuer: https://auth.nas.com
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://auth.nas.com/oauth/authorize
+        tokenUrl: https://auth.nas.com/oauth/token
+        registrationUrl: https://auth.nas.com/oauth/register
+        revocationUrl: https://auth.nas.com/oauth/revoke
+        pkce: S256
+        grant_types: [authorization_code, refresh_token]
+scopes:
+  - scope: nas.communities.read
+    description: Read access to communities managed by the authenticated Nas user.
+  - scope: nas.communities.write
+    description: Write access to communities managed by the authenticated Nas user.
+  - scope: nas.members.read
+    description: Read access to community members. Required by the list_members MCP tool.
+  - scope: nas.products.read
+    description: Read access to products in a community.
+  - scope: nas.products.write
+    description: Write access to products in a community.
+  - scope: nas.orders.read
+    description: Read access to physical product orders. Required by the list_physical_product_orders and get_physical_product_order MCP tools.

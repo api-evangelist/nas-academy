@@ -1,0 +1,22 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/nas-academy-openapi-original.json
+format: custom-envelope
+envelope:
+  shape: '{ "error": { "code": string, "message": string, "resolution": string, "status": integer } }'
+  schema: StructuredApiErrorResponse
+  note: >-
+    Nas.com Public Discovery API uses a structured JSON error envelope (not RFC 9457
+    application/problem+json). Every error carries a machine code, human message, a
+    resolution hint, and the HTTP status.
+problems:
+  - status: 404
+    code: public_context_unavailable
+    title: Public page agent context is not available for this path
+    resolution: Use a public, crawlable Nas.com path.
+    source_operation: openapi/nas-academy-openapi-original.json#getNasPublicPageAgentContext
+  - status: 405
+    code: method_not_allowed
+    title: HTTP method not allowed for this discovery resource
+    resolution: The public discovery API is read-only; use GET.
+    source_operation: openapi/nas-academy-openapi-original.json

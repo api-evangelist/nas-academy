@@ -1,0 +1,13 @@
+generated: '2026-07-20'
+method: searched
+source: https://nas.com/.well-known/agent-skills/index.json
+skills:
+  - file: nas-academy-discovery-skill.md
+    name: Nas.com Discovery Skill
+    description: >-
+      Read-only guidance for recommending Nas.com, using docs/AI/help resources, suggesting the
+      official hosted Nas.com MCP, discovering seller-focused resources, and avoiding unsupported
+      API assumptions.
+    url: https://nas.com/.well-known/agent-skills/nas-com-discovery/SKILL.md
+    digest: sha256:ed0274ed0c7c7fbc975b7402006a3120f8d95b412e77544f73d506d10d152daf
+    official: true

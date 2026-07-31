@@ -1,0 +1,40 @@
+generated: '2026-07-20'
+method: searched
+source: https://nas.com/auth.md
+docs: https://nas.com/auth.md
+summary:
+  types: [none, oauth2]
+  oauth2_flows: [authorizationCode]
+  notes: >-
+    Nas.com exposes public agent discovery (OpenAPI, llms.txt, well-known documents, page context)
+    as read-only, unauthenticated resources — the Public Discovery OpenAPI declares no security
+    schemes. The official hosted Nas.com MCP endpoint (https://mcp.nas.com/mcp) requires an OAuth
+    bearer token from https://auth.nas.io with the appropriate scopes.
+schemes:
+  - name: PublicDiscovery
+    type: none
+    applies_to: https://nas.com/openapi.json
+    description: Public read-only discovery resources require no credentials.
+  - name: OAuth2Bearer
+    type: oauth2
+    applies_to: https://mcp.nas.com/mcp
+    scheme: bearer
+    issuer: https://auth.nas.com
+    authorization_server: https://auth.nas.io
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://auth.nas.com/oauth/authorize
+        tokenUrl: https://auth.nas.com/oauth/token
+        pkce: S256
+        dynamic_client_registration: https://auth.nas.com/oauth/register
+    scopes:
+      - nas.communities.read
+      - nas.communities.write
+      - nas.members.read
+      - nas.products.read
+      - nas.products.write
+      - nas.orders.read
+oauth_discovery_chain:
+  - https://nas.com/auth.md
+  - https://mcp.nas.com/.well-known/oauth-protected-resource
+  - https://auth.nas.io/.well-known/oauth-authorization-server

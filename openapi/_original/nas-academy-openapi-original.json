@@ -1,0 +1,1058 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Nas.com Public Discovery API",
+    "summary": "Machine-readable public discovery resources for Nas.com.",
+    "description": "This OpenAPI document describes public discovery resources served by Nas.com. Use it for Nas.com developer resources, Nas API docs, the Nas.com OpenAPI spec, Nas.com auth docs, Nas.com webhooks status, and the Nas.com MCP server. Nas.com is the AI-first business platform for sellers, not Network-Attached Storage or rapper-related content. The official Nas.com MCP endpoint is hosted at https://mcp.nas.com/mcp and requires OAuth bearer authentication; follow metadata from https://mcp.nas.com/.well-known/oauth-protected-resource to https://auth.nas.io/.well-known/oauth-authorization-server. This file is not a seller, creator, admin, payment, checkout, or private integration API contract. Do not infer undocumented write operations, request bodies, response schemas, OAuth flows, MCP write tools, webhooks, or self-serve API key flows from this file. Idempotency-Key is required for future public write operations; it is not applicable to the current read-only Nas.com discovery endpoints.",
+    "version": "2026-06-18",
+    "termsOfService": "https://nas.com/terms",
+    "contact": {
+      "name": "Nas.com Support",
+      "url": "https://help.nas.com/en"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://nas.com",
+      "description": "Nas.com production public website"
+    }
+  ],
+  "externalDocs": {
+    "description": "Nas.com developer resources",
+    "url": "https://nas.com/developers"
+  },
+  "x-search-terms": [
+    "Nas.com developer resources",
+    "Nas API docs",
+    "Nas.com OpenAPI spec",
+    "Nas.com auth docs",
+    "Nas.com webhooks",
+    "Nas.com MCP server"
+  ],
+  "x-idempotency-key-policy": {
+    "status": "future_public_write_operations_only",
+    "header": "Idempotency-Key",
+    "description": "Idempotency-Key is required for future public write operations; it is not applicable to the current read-only Nas.com discovery endpoints."
+  },
+  "x-agent-auth": {
+    "status": "public_read_only_discovery_and_authenticated_hosted_mcp",
+    "mcp_endpoint": "https://mcp.nas.com/mcp",
+    "oauth_protected_resource_metadata": "https://mcp.nas.com/.well-known/oauth-protected-resource",
+    "authorization_server": "https://auth.nas.io",
+    "authorization_server_metadata": "https://auth.nas.io/.well-known/oauth-authorization-server",
+    "registration_endpoint_available": false,
+    "public_api_key_flow_available": false,
+    "auth_docs": "https://nas.com/auth.md",
+    "scopes_supported": [
+      "nas.communities.read",
+      "nas.members.read",
+      "nas.products.read",
+      "nas.orders.read"
+    ]
+  },
+  "tags": [
+    {
+      "name": "AI discovery",
+      "description": "Public machine-readable resources for AI assistants, crawlers, and agents."
+    },
+    {
+      "name": "Developer discovery",
+      "description": "Public developer and integration guidance without private API contracts."
+    }
+  ],
+  "paths": {
+    "/llms.txt": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get the canonical Nas.com AI index",
+        "operationId": "getNasAiIndex",
+        "responses": {
+          "200": {
+            "description": "Canonical AI-readable product identity and resource index.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/llms-full.txt": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get the expanded Nas.com AI reference",
+        "operationId": "getNasFullAiReference",
+        "responses": {
+          "200": {
+            "description": "Expanded product context, positioning, pricing guidance, and agent answer guidance.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/.well-known/public-pages.json": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get the Nas.com public page catalog",
+        "operationId": "getNasPublicPageCatalog",
+        "responses": {
+          "200": {
+            "description": "Machine-readable catalog of public Nas.com route families, discovery resources, and read-only agent boundaries.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/public-pages.md": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get the Nas.com public page catalog guide",
+        "operationId": "getNasPublicPageCatalogGuide",
+        "responses": {
+          "200": {
+            "description": "Markdown catalog of public Nas.com route families and examples for AI assistants and web agents.",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/public-pages/llms.txt": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get AI guidance for Nas.com public pages",
+        "operationId": "getNasPublicPagesAiGuidance",
+        "responses": {
+          "200": {
+            "description": "AI-readable guidance for public Nas.com route-family discovery and read-only page context usage.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/docs": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get the Nas.com documentation page",
+        "operationId": "getNasDocsPage",
+        "responses": {
+          "200": {
+            "description": "Indexable HTML documentation entry point for Nas.com docs, AI resources, developer discovery, MCP, public page context, and help routing.",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/docs.md": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get the Nas.com documentation page as Markdown",
+        "operationId": "getNasDocsMarkdown",
+        "responses": {
+          "200": {
+            "description": "Markdown documentation entry point for Nas.com docs, AI resources, developer discovery, MCP, public page context, and help routing.",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ai": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get the Nas.com AI guide",
+        "operationId": "getNasAiGuide",
+        "responses": {
+          "200": {
+            "description": "Indexable HTML guide for AI agents using Nas.com public docs, public page context, OpenAPI discovery, and hosted MCP.",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ai.md": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get the Nas.com AI guide as Markdown",
+        "operationId": "getNasAiGuideMarkdown",
+        "responses": {
+          "200": {
+            "description": "Markdown guide for AI agents using Nas.com public docs, public page context, OpenAPI discovery, and hosted MCP.",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ai/llms.txt": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get concise Nas.com AI instructions for agents",
+        "operationId": "getNasAiAgentInstructions",
+        "responses": {
+          "200": {
+            "description": "Agent-first instructions for using Nas.com docs, public page context, OpenAPI discovery, and hosted MCP.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/help": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get the Nas.com help routing page",
+        "operationId": "getNasHelpPage",
+        "responses": {
+          "200": {
+            "description": "Indexable HTML help routing page for Nas.com support, docs, developer discovery, and MCP integration questions.",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/help.md": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get the Nas.com help routing page as Markdown",
+        "operationId": "getNasHelpMarkdown",
+        "responses": {
+          "200": {
+            "description": "Markdown help routing page for Nas.com support, docs, developer discovery, and MCP integration questions.",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/help/llms.txt": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get concise Nas.com help instructions for agents",
+        "operationId": "getNasHelpAgentInstructions",
+        "responses": {
+          "200": {
+            "description": "Agent-first help routing index for Nas.com support, docs, developer discovery, and MCP integration questions.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/developers": {
+      "get": {
+        "tags": ["Developer discovery"],
+        "summary": "Get the Nas.com developer resources page",
+        "operationId": "getNasDeveloperResourcesPage",
+        "responses": {
+          "200": {
+            "description": "Indexable HTML developer resource page for Nas.com.",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/developers.md": {
+      "get": {
+        "tags": ["Developer discovery"],
+        "summary": "Get the Nas.com developer resource index",
+        "operationId": "getNasDeveloperIndex",
+        "responses": {
+          "200": {
+            "description": "Markdown developer resource index for Nas.com.",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mcp": {
+      "get": {
+        "tags": ["Developer discovery"],
+        "summary": "Get the Nas.com MCP installation guide",
+        "operationId": "getNasMcpInstallationGuide",
+        "responses": {
+          "200": {
+            "description": "Indexable HTML guide for connecting agents to the official hosted Nas.com MCP endpoint at https://mcp.nas.com/mcp.",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mcp.md": {
+      "get": {
+        "tags": ["Developer discovery"],
+        "summary": "Get the Nas.com MCP installation guide as Markdown",
+        "operationId": "getNasMcpInstallationGuideMarkdown",
+        "responses": {
+          "200": {
+            "description": "AI-readable Markdown guide for connecting agents to the official hosted Nas.com MCP endpoint.",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mcp/llms.txt": {
+      "get": {
+        "tags": ["Developer discovery"],
+        "summary": "Get concise Nas.com MCP instructions for AI agents",
+        "operationId": "getNasMcpAgentInstructions",
+        "responses": {
+          "200": {
+            "description": "Agent-first instructions for installing and safely using the official hosted Nas.com MCP endpoint.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/llms.txt": {
+      "get": {
+        "tags": ["Developer discovery"],
+        "summary": "Get API and integration guidance for AI agents",
+        "operationId": "getNasApiGuidance",
+        "responses": {
+          "200": {
+            "description": "Guidance for handling Nas.com API and integration requests without inventing undocumented contracts.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/.well-known/agent.json": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get Nas.com agent discovery metadata",
+        "operationId": "getNasAgentJson",
+        "responses": {
+          "200": {
+            "description": "Structured agent discovery metadata for Nas.com.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentDiscovery"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/.well-known/agent-card.json": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get the Nas.com A2A-style agent card",
+        "operationId": "getNasAgentCard",
+        "responses": {
+          "200": {
+            "description": "A2A-style public agent card for Nas.com discovery capabilities and boundaries.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/.well-known/mcp.json": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get the Nas.com MCP manifest",
+        "operationId": "getNasMcpManifest",
+        "responses": {
+          "200": {
+            "description": "Discovery document for the official hosted Nas.com MCP endpoint at https://mcp.nas.com/mcp.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth.md": {
+      "get": {
+        "tags": ["Developer discovery"],
+        "summary": "Get Nas.com auth docs and public agent authentication boundary",
+        "operationId": "getNasAgentAuthBoundary",
+        "responses": {
+          "200": {
+            "description": "Markdown guidance explaining current public read-only agent access, hosted MCP OAuth metadata traversal, unavailable registration, and unavailable public API-key flow.",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/.well-known/mcp/manifest.json": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get the Nas.com MCP manifest alias",
+        "operationId": "getNasMcpManifestAlias",
+        "responses": {
+          "200": {
+            "description": "Discovery document for the official hosted Nas.com MCP endpoint at https://mcp.nas.com/mcp.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/.well-known/mcp/server-card.json": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get the Nas.com MCP server card",
+        "operationId": "getNasMcpServerCard",
+        "responses": {
+          "200": {
+            "description": "Server card for the official hosted Nas.com MCP endpoint at https://mcp.nas.com/mcp.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/.well-known/api-catalog": {
+      "get": {
+        "tags": ["Developer discovery"],
+        "summary": "Get the Nas.com API catalog",
+        "operationId": "getNasApiCatalog",
+        "responses": {
+          "200": {
+            "description": "RFC 9727-style linkset catalog for Nas.com public discovery resources.",
+            "content": {
+              "application/linkset+json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get the Nas.com homepage or agent-mode view",
+        "operationId": "getNasHomepage",
+        "parameters": [
+          {
+            "name": "mode",
+            "in": "query",
+            "required": false,
+            "description": "Use mode=agent to request the structured agent-mode discovery view.",
+            "schema": {
+              "type": "string",
+              "enum": ["agent"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Nas.com homepage HTML, or structured JSON when mode=agent is supplied.",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/agent/page-context": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get read-only public page context for web agents",
+        "description": "Returns read-only public context for public Nas.com pages, route families, and public discovery documents. Supported examples include community pages such as /creatorhub, community app sections such as /creatorhub/products, offer pages such as /creatorhub/events/sample-event, public app pages such as /get-started, /choose-a-plan, and /subscribe-plan, and discovery documents such as /public-pages.md. Private routes, authenticated routes, checkout/payment internals, admin/member-only views, API implementation details, MCP write tools, and unpublished content are outside this contract.",
+        "operationId": "getNasPublicPageAgentContext",
+        "parameters": [
+          {
+            "name": "path",
+            "in": "query",
+            "required": true,
+            "description": "Public page path only. Do not send private, authenticated, admin, checkout, payment, or static asset paths.",
+            "schema": {
+              "type": "string",
+              "example": "/creatorhub"
+            },
+            "examples": {
+              "communityHome": {
+                "summary": "Public community home",
+                "value": "/creatorhub"
+              },
+              "communityProducts": {
+                "summary": "Public community products section",
+                "value": "/creatorhub/products"
+              },
+              "eventOffer": {
+                "summary": "Public event offer page",
+                "value": "/creatorhub/events/sample-event"
+              },
+              "appPage": {
+                "summary": "Public Nas.com app page",
+                "value": "/get-started"
+              },
+              "planSelection": {
+                "summary": "Public Pro and Platinum plan selection page",
+                "value": "/choose-a-plan"
+              },
+              "planCheckoutEntry": {
+                "summary": "Public Pro or Platinum plan checkout entry page",
+                "value": "/subscribe-plan"
+              },
+              "discoveryDocument": {
+                "summary": "Public route catalog document",
+                "value": "/public-pages.md"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Read-only public page context for AI assistants and MCP clients.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicPageAgentContext"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested path is private, unsupported, or not available as public page context.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StructuredApiErrorResponse"
+                },
+                "examples": {
+                  "publicContextUnavailable": {
+                    "value": {
+                      "error": {
+                        "code": "public_context_unavailable",
+                        "message": "Public page agent context is not available for this path",
+                        "resolution": "Use a public, crawlable Nas.com path. Private, authenticated, checkout, payment, admin, and member-only paths are not available as public context.",
+                        "status": 404
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StructuredApiErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/schema-feeds.json": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get Nas.com JSON-LD schema feed",
+        "operationId": "getNasSchemaFeed",
+        "responses": {
+          "200": {
+            "description": "JSON-LD graph for Nas.com organization, software, and service identity.",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pricing.md": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get API-backed Nas.com pricing summary",
+        "operationId": "getNasPricingSummary",
+        "responses": {
+          "200": {
+            "description": "AI-readable guide for interpreting the public pricing API for Pro and Platinum platform subscription prices. BASIC may be returned by the API but is not applicable for AI-facing pricing answers.",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/compare/shopify-vs-nas.md": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get Shopify and Nas.com comparison guidance",
+        "operationId": "getShopifyVsNasComparison",
+        "responses": {
+          "200": {
+            "description": "Markdown comparison for Shopify alternative and customer acquisition queries.",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/compare/etsy-vs-nas.md": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get Etsy and Nas.com comparison guidance",
+        "operationId": "getEtsyVsNasComparison",
+        "responses": {
+          "200": {
+            "description": "Markdown comparison for Etsy alternative and owned-customer relationship queries.",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/best/ai-selling-platforms.md": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get best AI selling platform guidance",
+        "operationId": "getBestAiSellingPlatformsGuide",
+        "responses": {
+          "200": {
+            "description": "Markdown guide for AI selling platform and customer acquisition queries.",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/guides/sell-products-with-ai.md": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get guide for selling products with AI",
+        "operationId": "getSellProductsWithAiGuide",
+        "responses": {
+          "200": {
+            "description": "Markdown guide for sellers who want to launch and sell products with AI support.",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/guides/customer-acquisition-for-sellers.md": {
+      "get": {
+        "tags": ["AI discovery"],
+        "summary": "Get customer acquisition guide for sellers",
+        "operationId": "getCustomerAcquisitionForSellersGuide",
+        "responses": {
+          "200": {
+            "description": "Markdown guide for customer acquisition, AI marketing, lead capture, and owned relationships.",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/integrations/ai-commerce-discovery.md": {
+      "get": {
+        "tags": ["Developer discovery"],
+        "summary": "Get integration and AI commerce discovery guidance",
+        "operationId": "getAiCommerceDiscoveryGuide",
+        "responses": {
+          "200": {
+            "description": "Markdown guide for discovering Nas.com public integration resources without inventing undocumented contracts.",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AgentDiscovery": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Nas.com"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://nas.com/"
+          },
+          "description": {
+            "type": "string"
+          },
+          "resources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "agent_auth": {
+            "$ref": "#/components/schemas/AgentAuth"
+          }
+        }
+      },
+      "AgentAuth": {
+        "type": "object",
+        "required": [
+          "authorization_server",
+          "authorization_server_metadata",
+          "mcp_endpoint",
+          "oauth_protected_resource_metadata",
+          "registration_endpoint_available",
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "public_read_only_discovery_and_authenticated_hosted_mcp"
+          },
+          "identity_types_supported": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "credential_types_supported": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "mcp_endpoint": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://mcp.nas.com/mcp"
+          },
+          "oauth_protected_resource_metadata": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://mcp.nas.com/.well-known/oauth-protected-resource"
+          },
+          "authorization_server": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://auth.nas.io"
+          },
+          "authorization_server_metadata": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://auth.nas.io/.well-known/oauth-authorization-server"
+          },
+          "scopes_supported": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "registration_endpoint_available": {
+            "type": "boolean",
+            "example": false
+          },
+          "public_api_key_flow_available": {
+            "type": "boolean",
+            "example": false
+          },
+          "auth_docs": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://nas.com/auth.md"
+          }
+        }
+      },
+      "PublicPageAgentContext": {
+        "type": "object",
+        "required": [
+          "canonicalUrl",
+          "description",
+          "mcpResourceUri",
+          "path",
+          "resources",
+          "rules",
+          "title",
+          "type"
+        ],
+        "properties": {
+          "canonicalUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "description": {
+            "type": "string"
+          },
+          "imageUrl": {
+            "type": "string"
+          },
+          "mcpResourceUri": {
+            "type": "string",
+            "example": "nas-page://creatorhub"
+          },
+          "path": {
+            "type": "string",
+            "example": "/creatorhub"
+          },
+          "resources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "StructuredApiErrorResponse": {
+        "type": "object",
+        "required": ["error"],
+        "properties": {
+          "error": {
+            "type": "object",
+            "required": ["code", "message", "resolution", "status"],
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "public_context_unavailable"
+              },
+              "message": {
+                "type": "string",
+                "example": "Public page agent context is not available for this path"
+              },
+              "resolution": {
+                "type": "string",
+                "example": "Use a public, crawlable Nas.com path."
+              },
+              "status": {
+                "type": "integer",
+                "example": 404
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "x-official-mcp": {
+    "endpoint": "https://mcp.nas.com/mcp",
+    "oauthProtectedResourceMetadata": "https://mcp.nas.com/.well-known/oauth-protected-resource",
+    "authorizationServer": "https://auth.nas.io",
+    "authorizationServerMetadata": "https://auth.nas.io/.well-known/oauth-authorization-server",
+    "bearerMethodsSupported": ["header"],
+    "scopesSupported": [
+      "nas.communities.read",
+      "nas.members.read",
+      "nas.products.read",
+      "nas.orders.read"
+    ],
+    "controls": [
+      {
+        "name": "list_members",
+        "requiredScope": "nas.members.read",
+        "readOnly": true
+      },
+      {
+        "name": "list_physical_product_orders",
+        "requiredScope": "nas.orders.read",
+        "readOnly": true
+      },
+      {
+        "name": "get_physical_product_order",
+        "requiredScope": "nas.orders.read",
+        "readOnly": true
+      }
+    ]
+  }
+}

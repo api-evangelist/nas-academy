@@ -1,0 +1,35 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/nas-academy-openapi-original.json
+authentication:
+  public_discovery: none (read-only)
+  mcp: oauth2 bearer (see authentication/nas-academy-authentication.yml)
+content_negotiation:
+  note: >-
+    Most public resources are published in multiple representations for humans and agents:
+    an HTML page, a Markdown twin (<path>.md), and an AI index (<path>/llms.txt). Agents
+    should prefer the .md / llms.txt variants.
+  variants: [html, markdown, 'llms.txt']
+versioning:
+  scheme: date
+  current: '2026-06-18'
+  note: OpenAPI info.version is an ISO date; MCP protocolVersion 2025-06-18.
+error_envelope:
+  shape: '{ "error": { "code", "message", "resolution", "status" } }'
+  ref: errors/nas-academy-problem-types.yml
+pagination:
+  note: >-
+    The public discovery API is not paginated. The hosted MCP list tools accept pageNo /
+    pageSize integer parameters and filter/sort params (searchString, sortBy, sortOrder,
+    status, segment, role).
+  style: page-number
+  params: [pageNo, pageSize]
+idempotency:
+  supported: false
+  note: The public API is read-only (GET only); no idempotency contract is required or documented.
+rate_limiting:
+  documented: false
+cross_links:
+  errors: errors/nas-academy-problem-types.yml
+  authentication: authentication/nas-academy-authentication.yml
+  scopes: scopes/nas-academy-scopes.yml

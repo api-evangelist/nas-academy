@@ -1,0 +1,39 @@
+generated: '2026-07-20'
+method: searched
+status: published
+source: https://nas.com/.well-known/mcp.json
+server:
+  name: nas-com-official-mcp
+  description: Official authenticated hosted MCP server for Nas.com business, member, product, and order context.
+  version: 1.0.0
+  transport: streamable-http
+  url: https://mcp.nas.com/mcp
+  protocol_version: '2025-06-18'
+  methods: [POST, OPTIONS]
+  github: https://github.com/Nas-Company/nas-mcp
+auth:
+  type: oauth2
+  bearer: true
+  protected_resource_metadata: https://mcp.nas.com/.well-known/oauth-protected-resource
+  authorization_server: https://auth.nas.io
+  authorization_server_metadata: https://auth.nas.io/.well-known/oauth-authorization-server
+tools:
+  - name: list_members
+    title: List members
+    read_only: true
+    required_scope: nas.members.read
+    description: List members for a community managed by the authenticated NAS user.
+  - name: list_physical_product_orders
+    title: List physical product orders
+    read_only: true
+    required_scope: nas.orders.read
+    description: List orders for a physical product in a community managed by the authenticated NAS user.
+  - name: get_physical_product_order
+    title: Get physical product order
+    read_only: true
+    required_scope: nas.orders.read
+    description: Get a single physical product order in a community managed by the authenticated NAS user.
+manifests:
+  - https://nas.com/.well-known/mcp.json
+  - https://nas.com/.well-known/mcp/manifest.json
+  - https://nas.com/.well-known/mcp/server-card.json

@@ -1,0 +1,46 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/nas-academy-openapi-original.json
+note: >-
+  Entity graph derived from the OpenAPI 3.1 components.schemas of the Nas.com Public Discovery
+  API. This is a small read-only discovery surface, so the model is intentionally shallow: the
+  discovery metadata entity embeds an auth-boundary entity, and public-page context and the
+  structured error envelope are standalone response shapes. Authenticated business/member/product/
+  order entities live behind the hosted MCP server (mcp.nas.com) and are not described in the
+  public spec, so they are not modeled here.
+entities:
+  - name: AgentDiscovery
+    description: Structured agent discovery metadata served at /.well-known/agent.json.
+    fields: [name, url, description, resources, agent_auth]
+    source_schema: AgentDiscovery
+  - name: AgentAuth
+    description: Public agent authentication boundary describing hosted-MCP OAuth traversal.
+    fields:
+      - status
+      - identity_types_supported
+      - credential_types_supported
+      - mcp_endpoint
+      - oauth_protected_resource_metadata
+      - authorization_server
+      - authorization_server_metadata
+      - scopes_supported
+      - registration_endpoint_available
+      - public_api_key_flow_available
+      - auth_docs
+    source_schema: AgentAuth
+  - name: PublicPageAgentContext
+    description: Read-only public page context returned by /api/agent/page-context.
+    fields: [canonicalUrl, description, imageUrl, mcpResourceUri, path, resources, rules, title, type]
+    source_schema: PublicPageAgentContext
+  - name: StructuredApiErrorResponse
+    description: 'Structured error envelope: error object with code, message, resolution, status.'
+    fields: [error]
+    source_schema: StructuredApiErrorResponse
+    cross_link: errors/nas-academy-problem-types.yml
+relationships:
+  - from: AgentDiscovery
+    to: AgentAuth
+    kind: has_one
+    via: agent_auth
+    evidence: 'openapi $ref AgentDiscovery.agent_auth -> #/components/schemas/AgentAuth'
+id_prefixes: []

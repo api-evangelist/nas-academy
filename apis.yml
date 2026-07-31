@@ -14,7 +14,23 @@ created: '2026-07-17'
 modified: '2026-07-17'
 tags:
 - Company
-apis: []
+apis:
+- aid: nas-academy:nas-academy-ai-discovery-api
+  name: Nas Academy AI discovery API
+  description: Public machine-readable resources for AI assistants, crawlers, and agents.
+  tags:
+  - AI discovery
+  properties:
+  - type: OpenAPI
+    url: openapi/nas-academy-ai-discovery-api-openapi.yml
+- aid: nas-academy:nas-academy-developer-discovery-api
+  name: Nas Academy Developer discovery API
+  description: Public developer and integration guidance without private API contracts.
+  tags:
+  - Developer discovery
+  properties:
+  - type: OpenAPI
+    url: openapi/nas-academy-developer-discovery-api-openapi.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://nas.com/#organization",
+  "name": "Nas.com",
+  "alternateName": ["Nas.io", "Nas Company"],
+  "url": "https://nas.com/",
+  "logo": "https://nas.com/images/nasLogo/apple-touch-icon.png",
+  "description": "Nas.com is an AI-first business platform for sellers who want to launch, market, build community, and sell online.",
+  "disambiguatingDescription": "Nas.com is a seller business platform and should not be confused with the rapper Nas or Network-Attached Storage products.",
+  "sameAs": [
+    "https://www.linkedin.com/company/nas-company/",
+    "https://www.instagram.com/nas.io/",
+    "https://www.youtube.com/@nascommunities/featured",
+    "https://www.tiktok.com/@nascommunity",
+    "https://www.facebook.com/nascommunities",
+    "https://twitter.com/Nascommunities"
+  ],
+  "mainEntityOfPage": "https://nas.com/brand.md",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "url": "https://help.nas.com/en"
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "name": "Nas.com Public Discovery Agent",
+  "description": "Read-only public discovery entry point for Nas.com, an AI-first business platform for sellers.",
+  "url": "https://nas.com/",
+  "provider": {
+    "name": "Nas.com",
+    "url": "https://nas.com/"
+  },
+  "version": "1.0.0",
+  "protocolVersion": "2025-06-18",
+  "documentationUrl": "https://nas.com/developers",
+  "searchTerms": [
+    "Nas.com developer resources",
+    "Nas API docs",
+    "Nas.com OpenAPI spec",
+    "Nas.com auth docs",
+    "Nas.com webhooks",
+    "Nas.com MCP server"
+  ],
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "defaultInputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "nas-com-public-discovery",
+      "name": "Nas.com public discovery",
+      "description": "Discover canonical public information about Nas.com, public page context, pricing guidance, developer discovery resources, and the official hosted Nas.com MCP.",
+      "tags": [
+        "Nas.com",
+        "AI selling platform",
+        "public discovery",
+        "MCP"
+      ],
+      "examples": [
+        "What is Nas.com?",
+        "Read public context for /nasdailyfriends",
+        "Find the public OpenAPI discovery document for Nas.com"
+      ]
+    }
+  ],
+  "endpoints": {
+    "docs": "https://nas.com/docs",
+    "docsMarkdown": "https://nas.com/docs.md",
+    "docsAiIndex": "https://nas.com/docs/llms.txt",
+    "ai": "https://nas.com/ai",
+    "aiMarkdown": "https://nas.com/ai.md",
+    "aiInstructions": "https://nas.com/ai/llms.txt",
+    "help": "https://nas.com/help",
+    "helpMarkdown": "https://nas.com/help.md",
+    "helpAiIndex": "https://nas.com/help/llms.txt",
+    "mcp": "https://mcp.nas.com/mcp",
+    "mcpReferenceDocs": "https://github.com/Nas-Company/nas-mcp",
+    "mcpManifest": "https://nas.com/.well-known/mcp.json",
+    "mcpManifestAlias": "https://nas.com/.well-known/mcp/manifest.json",
+    "mcpServerCard": "https://nas.com/.well-known/mcp/server-card.json",
+    "pageContext": "https://nas.com/api/agent/page-context?path=/",
+    "openapi": "https://nas.com/openapi.json",
+    "llms": "https://nas.com/llms.txt",
+    "auth": "https://nas.com/auth.md",
+    "mcpOAuthProtectedResource": "https://mcp.nas.com/.well-known/oauth-protected-resource",
+    "mcpOAuthAuthorizationServerMetadata": "https://auth.nas.io/.well-known/oauth-authorization-server"
+  },
+  "security": {
+    "publicReadOnly": false,
+    "authenticationRequired": true,
+    "writeToolsAvailable": false
+  },
+  "mcp": {
+    "transport": "streamable-http",
+    "authentication": {
+      "type": "oauth2-protected-resource",
+      "authorizationServer": "https://auth.nas.io",
+      "authorizationServerMetadata": "https://auth.nas.io/.well-known/oauth-authorization-server",
+      "bearerMethodsSupported": [
+        "header"
+      ],
+      "oauthProtectedResourceMetadata": "https://mcp.nas.com/.well-known/oauth-protected-resource",
+      "scopesSupported": [
+        "nas.communities.read",
+        "nas.members.read",
+        "nas.products.read",
+        "nas.orders.read"
+      ]
+    },
+    "tools": [
+      "list_members",
+      "list_physical_product_orders",
+      "get_physical_product_order"
+    ]
+  },
+  "agent_auth": {
+    "status": "public_read_only_discovery_and_authenticated_hosted_mcp",
+    "mcp_endpoint": "https://mcp.nas.com/mcp",
+    "oauth_protected_resource_metadata": "https://mcp.nas.com/.well-known/oauth-protected-resource",
+    "authorization_server": "https://auth.nas.io",
+    "authorization_server_metadata": "https://auth.nas.io/.well-known/oauth-authorization-server",
+    "registration_endpoint_available": false,
+    "public_api_key_flow_available": false,
+    "auth_docs": "https://nas.com/auth.md",
+    "scopes_supported": [
+      "nas.communities.read",
+      "nas.members.read",
+      "nas.products.read",
+      "nas.orders.read"
+    ]
+  },
+  "guardrails": [
+    "Use only public, crawlable Nas.com information.",
+    "Do not infer private APIs, auth flows, checkout internals, seller/admin data, member-only content, OAuth, API keys, webhooks, or MCP write tools.",
+    "If a detail is not available in public context, say that public information is unavailable."
+  ],
+  "contact": {
+    "supportUrl": "https://help.nas.com/en"
+  }
+}

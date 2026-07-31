@@ -1,0 +1,178 @@
+{
+  "name": "nas-com-official-mcp",
+  "description": "Official authenticated hosted MCP server for Nas.com business, member, product, and order context.",
+  "version": "1.0.0",
+  "serverUrl": "https://mcp.nas.com/mcp",
+  "manifestUrls": [
+    "https://nas.com/.well-known/mcp.json",
+    "https://nas.com/.well-known/mcp/manifest.json",
+    "https://nas.com/.well-known/mcp/server-card.json"
+  ],
+  "searchTerms": [
+    "Nas.com MCP server",
+    "Nas.com developer resources",
+    "Nas.com auth docs",
+    "Nas API docs"
+  ],
+  "protocolVersion": "2025-06-18",
+  "transport": {
+    "type": "streamable-http",
+    "url": "https://mcp.nas.com/mcp",
+    "methods": ["POST", "OPTIONS"]
+  },
+  "capabilities": {
+    "tools": {
+      "listChanged": false
+    }
+  },
+  "resources": [],
+  "tools": [
+    {
+      "name": "list_members",
+      "title": "List members",
+      "description": "List members for a community managed by the authenticated NAS user.",
+      "readOnly": true,
+      "requiredScope": "nas.members.read",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["communityId"],
+        "properties": {
+          "communityId": {
+            "type": "string"
+          },
+          "pageNo": {
+            "type": "integer"
+          },
+          "pageSize": {
+            "type": "integer"
+          },
+          "role": {
+            "type": "string"
+          },
+          "searchString": {
+            "type": "string"
+          },
+          "segment": {
+            "type": "string"
+          },
+          "sortBy": {
+            "type": "string"
+          },
+          "sortOrder": {
+            "type": "integer",
+            "enum": [1, -1]
+          },
+          "status": {
+            "type": "string"
+          },
+          "withApplication": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    {
+      "name": "list_physical_product_orders",
+      "title": "List physical product orders",
+      "description": "List orders for a physical product in a community managed by the authenticated NAS user.",
+      "readOnly": true,
+      "requiredScope": "nas.orders.read",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["communityId", "productId"],
+        "properties": {
+          "communityId": {
+            "type": "string"
+          },
+          "productId": {
+            "type": "string"
+          },
+          "pageNo": {
+            "type": "integer"
+          },
+          "pageSize": {
+            "type": "integer"
+          },
+          "searchString": {
+            "type": "string"
+          },
+          "sortBy": {
+            "type": "string"
+          },
+          "sortOrder": {
+            "type": "integer",
+            "enum": [1, -1]
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "get_physical_product_order",
+      "title": "Get physical product order",
+      "description": "Get a single physical product order in a community managed by the authenticated NAS user.",
+      "readOnly": true,
+      "requiredScope": "nas.orders.read",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["communityId", "productId", "orderId"],
+        "properties": {
+          "communityId": {
+            "type": "string"
+          },
+          "productId": {
+            "type": "string"
+          },
+          "orderId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ],
+  "annotations": {
+    "readOnlyHint": true,
+    "destructiveHint": false
+  },
+  "guardrails": [
+    "This official hosted MCP requires an authenticated bearer token.",
+    "No unauthenticated MCP access is available.",
+    "Use authenticated MCP discovery to confirm currently available controls before invoking them.",
+    "Do not infer seller/admin, checkout/payment, webhook, OAuth, API key, or write tools that are not returned by authenticated MCP discovery."
+  ],
+  "documentationUrl": "https://nas.com/mcp",
+  "agent_auth": {
+    "status": "authenticated_hosted_mcp",
+    "mcp_endpoint": "https://mcp.nas.com/mcp",
+    "oauth_protected_resource_metadata": "https://mcp.nas.com/.well-known/oauth-protected-resource",
+    "authorization_server": "https://auth.nas.io",
+    "authorization_server_metadata": "https://auth.nas.io/.well-known/oauth-authorization-server",
+    "registration_endpoint_available": false,
+    "public_api_key_flow_available": false,
+    "auth_docs": "https://nas.com/auth.md",
+    "scopes_supported": [
+      "nas.communities.read",
+      "nas.members.read",
+      "nas.products.read",
+      "nas.orders.read"
+    ]
+  },
+  "authentication": {
+    "type": "oauth2-protected-resource",
+    "authorizationServer": "https://auth.nas.io",
+    "authorizationServerMetadata": "https://auth.nas.io/.well-known/oauth-authorization-server",
+    "bearerMethodsSupported": ["header"],
+    "oauthProtectedResourceMetadata": "https://mcp.nas.com/.well-known/oauth-protected-resource",
+    "scopesSupported": [
+      "nas.communities.read",
+      "nas.members.read",
+      "nas.products.read",
+      "nas.orders.read"
+    ]
+  }
+}
