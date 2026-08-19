@@ -1,0 +1,331 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Nas.com Public Discovery AI discovery API",
+    "version": "2026-06-18"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AI discovery",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the canonical Nas.com AI index",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/llms.txt"
+          },
+          "docs": "Get the canonical Nas.com AI index"
+        },
+        {
+          "info": {
+            "name": "Get the expanded Nas.com AI reference",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/llms-full.txt"
+          },
+          "docs": "Get the expanded Nas.com AI reference"
+        },
+        {
+          "info": {
+            "name": "Get the Nas.com public page catalog",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/.well-known/public-pages.json"
+          },
+          "docs": "Get the Nas.com public page catalog"
+        },
+        {
+          "info": {
+            "name": "Get the Nas.com public page catalog guide",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/public-pages.md"
+          },
+          "docs": "Get the Nas.com public page catalog guide"
+        },
+        {
+          "info": {
+            "name": "Get AI guidance for Nas.com public pages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/public-pages/llms.txt"
+          },
+          "docs": "Get AI guidance for Nas.com public pages"
+        },
+        {
+          "info": {
+            "name": "Get the Nas.com documentation page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/docs"
+          },
+          "docs": "Get the Nas.com documentation page"
+        },
+        {
+          "info": {
+            "name": "Get the Nas.com documentation page as Markdown",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/docs.md"
+          },
+          "docs": "Get the Nas.com documentation page as Markdown"
+        },
+        {
+          "info": {
+            "name": "Get the Nas.com AI guide",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/ai"
+          },
+          "docs": "Get the Nas.com AI guide"
+        },
+        {
+          "info": {
+            "name": "Get the Nas.com AI guide as Markdown",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/ai.md"
+          },
+          "docs": "Get the Nas.com AI guide as Markdown"
+        },
+        {
+          "info": {
+            "name": "Get concise Nas.com AI instructions for agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/ai/llms.txt"
+          },
+          "docs": "Get concise Nas.com AI instructions for agents"
+        },
+        {
+          "info": {
+            "name": "Get the Nas.com help routing page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/help"
+          },
+          "docs": "Get the Nas.com help routing page"
+        },
+        {
+          "info": {
+            "name": "Get the Nas.com help routing page as Markdown",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/help.md"
+          },
+          "docs": "Get the Nas.com help routing page as Markdown"
+        },
+        {
+          "info": {
+            "name": "Get concise Nas.com help instructions for agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/help/llms.txt"
+          },
+          "docs": "Get concise Nas.com help instructions for agents"
+        },
+        {
+          "info": {
+            "name": "Get Nas.com agent discovery metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/.well-known/agent.json"
+          },
+          "docs": "Get Nas.com agent discovery metadata"
+        },
+        {
+          "info": {
+            "name": "Get the Nas.com A2A-style agent card",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/.well-known/agent-card.json"
+          },
+          "docs": "Get the Nas.com A2A-style agent card"
+        },
+        {
+          "info": {
+            "name": "Get the Nas.com MCP manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/.well-known/mcp.json"
+          },
+          "docs": "Get the Nas.com MCP manifest"
+        },
+        {
+          "info": {
+            "name": "Get the Nas.com MCP manifest alias",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/.well-known/mcp/manifest.json"
+          },
+          "docs": "Get the Nas.com MCP manifest alias"
+        },
+        {
+          "info": {
+            "name": "Get the Nas.com MCP server card",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/.well-known/mcp/server-card.json"
+          },
+          "docs": "Get the Nas.com MCP server card"
+        },
+        {
+          "info": {
+            "name": "Get the Nas.com homepage or agent-mode view",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/",
+            "params": [
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Use mode=agent to request the structured agent-mode discovery view."
+              }
+            ]
+          },
+          "docs": "Get the Nas.com homepage or agent-mode view"
+        },
+        {
+          "info": {
+            "name": "Get read-only public page context for web agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/api/agent/page-context",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "query",
+                "description": "Public page path only. Do not send private, authenticated, admin, checkout, payment, or static asset paths."
+              }
+            ]
+          },
+          "docs": "Returns read-only public context for public Nas.com pages, route families, and public discovery documents. Supported examples include community pages such as /creatorhub, community app sections such as /creatorhub/products, offer pages such as /creatorhub/events/sample-event, public app pages such as /get-started, /choose-a-plan, and /subscribe-plan, and discovery documents such as /public-pages.md. Private routes, authenticated routes, checkout/payment internals, admin/member-only views, API im"
+        },
+        {
+          "info": {
+            "name": "Get Nas.com JSON-LD schema feed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/schema-feeds.json"
+          },
+          "docs": "Get Nas.com JSON-LD schema feed"
+        },
+        {
+          "info": {
+            "name": "Get API-backed Nas.com pricing summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/pricing.md"
+          },
+          "docs": "Get API-backed Nas.com pricing summary"
+        },
+        {
+          "info": {
+            "name": "Get Shopify and Nas.com comparison guidance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/compare/shopify-vs-nas.md"
+          },
+          "docs": "Get Shopify and Nas.com comparison guidance"
+        },
+        {
+          "info": {
+            "name": "Get Etsy and Nas.com comparison guidance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/compare/etsy-vs-nas.md"
+          },
+          "docs": "Get Etsy and Nas.com comparison guidance"
+        },
+        {
+          "info": {
+            "name": "Get best AI selling platform guidance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/best/ai-selling-platforms.md"
+          },
+          "docs": "Get best AI selling platform guidance"
+        },
+        {
+          "info": {
+            "name": "Get guide for selling products with AI",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/guides/sell-products-with-ai.md"
+          },
+          "docs": "Get guide for selling products with AI"
+        },
+        {
+          "info": {
+            "name": "Get customer acquisition guide for sellers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/guides/customer-acquisition-for-sellers.md"
+          },
+          "docs": "Get customer acquisition guide for sellers"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

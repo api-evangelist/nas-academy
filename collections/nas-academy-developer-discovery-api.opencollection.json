@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Nas.com Public Discovery AI discovery Developer discovery API",
+    "version": "2026-06-18"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Developer discovery",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the Nas.com developer resources page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/developers"
+          },
+          "docs": "Get the Nas.com developer resources page"
+        },
+        {
+          "info": {
+            "name": "Get the Nas.com developer resource index",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/developers.md"
+          },
+          "docs": "Get the Nas.com developer resource index"
+        },
+        {
+          "info": {
+            "name": "Get the Nas.com MCP installation guide",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/mcp"
+          },
+          "docs": "Get the Nas.com MCP installation guide"
+        },
+        {
+          "info": {
+            "name": "Get the Nas.com MCP installation guide as Markdown",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/mcp.md"
+          },
+          "docs": "Get the Nas.com MCP installation guide as Markdown"
+        },
+        {
+          "info": {
+            "name": "Get concise Nas.com MCP instructions for AI agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/mcp/llms.txt"
+          },
+          "docs": "Get concise Nas.com MCP instructions for AI agents"
+        },
+        {
+          "info": {
+            "name": "Get API and integration guidance for AI agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/api/llms.txt"
+          },
+          "docs": "Get API and integration guidance for AI agents"
+        },
+        {
+          "info": {
+            "name": "Get Nas.com auth docs and public agent authentication boundary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/auth.md"
+          },
+          "docs": "Get Nas.com auth docs and public agent authentication boundary"
+        },
+        {
+          "info": {
+            "name": "Get the Nas.com API catalog",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/.well-known/api-catalog"
+          },
+          "docs": "Get the Nas.com API catalog"
+        },
+        {
+          "info": {
+            "name": "Get integration and AI commerce discovery guidance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nas.com/integrations/ai-commerce-discovery.md"
+          },
+          "docs": "Get integration and AI commerce discovery guidance"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,643 @@
+{
+  "item": [
+    {
+      "id": "3639aca0-2882-4da6-b2a8-75ab0fc2c760",
+      "name": "Developer discovery",
+      "description": {
+        "content": "Public developer and integration guidance without private API contracts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0bdf9bc0-f5b1-4367-a51c-201a9e8f3a0a",
+          "name": "Get the Nas.com developer resources page",
+          "request": {
+            "name": "Get the Nas.com developer resources page",
+            "description": {},
+            "url": {
+              "path": [
+                "developers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1b8a5b90-9c23-437e-9fa3-ba71804a9d6e",
+              "name": "Indexable HTML developer resource page for Nas.com.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "developers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "124a4f00-9467-41d8-bf5a-77baf3eeaf89",
+          "name": "Get the Nas.com developer resource index",
+          "request": {
+            "name": "Get the Nas.com developer resource index",
+            "description": {},
+            "url": {
+              "path": [
+                "developers.md"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/markdown"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "13955de5-2513-48b8-8368-d2e6e7e538c1",
+              "name": "Markdown developer resource index for Nas.com.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "developers.md"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/markdown"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/markdown"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8315bd1e-8129-472d-8a30-4a070574b3ac",
+          "name": "Get the Nas.com MCP installation guide",
+          "request": {
+            "name": "Get the Nas.com MCP installation guide",
+            "description": {},
+            "url": {
+              "path": [
+                "mcp"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7073e1d7-3f28-4a56-b248-27560e2deda9",
+              "name": "Indexable HTML guide for connecting agents to the official hosted Nas.com MCP endpoint at https://mcp.nas.com/mcp.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mcp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b4ca1ff-70de-4a19-b3e3-fb17c6a6403d",
+          "name": "Get the Nas.com MCP installation guide as Markdown",
+          "request": {
+            "name": "Get the Nas.com MCP installation guide as Markdown",
+            "description": {},
+            "url": {
+              "path": [
+                "mcp.md"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/markdown"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "16923082-98c9-4c29-91d3-7bb2f7377779",
+              "name": "AI-readable Markdown guide for connecting agents to the official hosted Nas.com MCP endpoint.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mcp.md"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/markdown"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/markdown"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a6b3470-fa07-46d9-9477-09519f54bdf4",
+          "name": "Get concise Nas.com MCP instructions for AI agents",
+          "request": {
+            "name": "Get concise Nas.com MCP instructions for AI agents",
+            "description": {},
+            "url": {
+              "path": [
+                "mcp",
+                "llms.txt"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6269be44-3123-4309-8f2b-11262d7f9de7",
+              "name": "Agent-first instructions for installing and safely using the official hosted Nas.com MCP endpoint.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mcp",
+                    "llms.txt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eaa98b49-2333-4e37-a982-f56d0283d937",
+          "name": "Get API and integration guidance for AI agents",
+          "request": {
+            "name": "Get API and integration guidance for AI agents",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "llms.txt"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "28dec58e-0c7b-45b7-8e61-af2b6a14d92f",
+              "name": "Guidance for handling Nas.com API and integration requests without inventing undocumented contracts.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "llms.txt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ac524a8a-77cc-4317-89b7-a32c7ea0b25b",
+          "name": "Get Nas.com auth docs and public agent authentication boundary",
+          "request": {
+            "name": "Get Nas.com auth docs and public agent authentication boundary",
+            "description": {},
+            "url": {
+              "path": [
+                "auth.md"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/markdown"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "880f2b5e-3c0d-44f3-b7e4-f8236f9224d8",
+              "name": "Markdown guidance explaining current public read-only agent access, hosted MCP OAuth metadata traversal, unavailable registration, and unavailable public API-key flow.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth.md"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/markdown"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/markdown"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01ec98f9-ddc2-4e06-83b9-d05b6286b567",
+          "name": "Get the Nas.com API catalog",
+          "request": {
+            "name": "Get the Nas.com API catalog",
+            "description": {},
+            "url": {
+              "path": [
+                ".well-known",
+                "api-catalog"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/linkset+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8e0f29f2-0ca8-479f-9e76-fd8f5958ed69",
+              "name": "RFC 9727-style linkset catalog for Nas.com public discovery resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ".well-known",
+                    "api-catalog"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/linkset+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/linkset+json"
+                }
+              ],
+              "body": "{\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab3341fd-2057-48de-b975-8494479927e3",
+          "name": "Get integration and AI commerce discovery guidance",
+          "request": {
+            "name": "Get integration and AI commerce discovery guidance",
+            "description": {},
+            "url": {
+              "path": [
+                "integrations",
+                "ai-commerce-discovery.md"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/markdown"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bacd75f1-fd2e-4931-94c8-56cab210ff77",
+              "name": "Markdown guide for discovering Nas.com public integration resources without inventing undocumented contracts.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "integrations",
+                    "ai-commerce-discovery.md"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/markdown"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/markdown"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://nas.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "de0b9eb6-1284-42a2-a96f-8aaec95fc92d",
+    "name": "Nas.com Public Discovery AI discovery Developer discovery API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This OpenAPI document describes public discovery resources served by Nas.com. Use it for Nas.com developer resources, Nas API docs, the Nas.com OpenAPI spec, Nas.com auth docs, Nas.com webhooks status, and the Nas.com MCP server. Nas.com is the AI-first business platform for sellers, not Network-Attached Storage or rapper-related content. The official Nas.com MCP endpoint is hosted at https://mcp.nas.com/mcp and requires OAuth bearer authentication; follow metadata from https://mcp.nas.com/.well-known/oauth-protected-resource to https://auth.nas.io/.well-known/oauth-authorization-server. This file is not a seller, creator, admin, payment, checkout, or private integration API contract. Do not infer undocumented write operations, request bodies, response schemas, OAuth flows, MCP write tools, webhooks, or self-serve API key flows from this file. Idempotency-Key is required for future public write operations; it is not applicable to the current read-only Nas.com discovery endpoints.\n\nContact Support:\n Name: Nas.com Support",
+      "type": "text/plain"
+    }
+  }
+}
