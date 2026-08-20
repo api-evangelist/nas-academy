@@ -19,6 +19,8 @@ apis:
   name: Nas Academy AI discovery API
   description: Public machine-readable resources for AI assistants, crawlers, and agents.
   tags:
+  - AI Discovery
+  tags_raw:
   - AI discovery
   properties:
   - type: OpenAPI
