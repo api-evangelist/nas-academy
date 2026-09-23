@@ -1,8 +1,7 @@
 {
   "provider": "nas-academy",
   "sources": [
-    "nas-academy-ai-discovery-api-openapi.yml",
-    "nas-academy-developer-discovery-api-openapi.yml"
+    "_original/nas-academy-openapi-original.json"
   ],
   "outputs": [
     "nas-academy-ai-discovery-api-openapi.yml",
@@ -11,6 +10,13 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "nas-academy-openapi-original.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "nas-academy-ai-discovery-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nas-academy-developer-discovery-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

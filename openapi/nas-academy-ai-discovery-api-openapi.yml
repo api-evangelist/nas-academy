@@ -1,8 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Nas.com Public Discovery AI discovery API
   summary: Machine-readable public discovery resources for Nas.com.
-  description: This OpenAPI document describes public discovery resources served by Nas.com. Use it for Nas.com developer resources, Nas API docs, the Nas.com OpenAPI spec, Nas.com auth docs, Nas.com webhooks status, and the Nas.com MCP server. Nas.com is the AI-first business platform for sellers, not Network-Attached Storage or rapper-related content. The official Nas.com MCP endpoint is hosted at https://mcp.nas.com/mcp and requires OAuth bearer authentication; follow metadata from https://mcp.nas.com/.well-known/oauth-protected-resource to https://auth.nas.io/.well-known/oauth-authorization-server. This file is not a seller, creator, admin, payment, checkout, or private integration API contract. Do not infer undocumented write operations, request bodies, response schemas, OAuth flows, MCP write tools, webhooks, or self-serve API key flows from this file. Idempotency-Key is required for future public write operations; it is not applicable to the current read-only Nas.com discovery endpoints.
+  description: This OpenAPI document describes public discovery resources served by Nas.com.
   version: '2026-06-18'
   termsOfService: https://nas.com/terms
   contact:
@@ -12,13 +12,13 @@ servers:
 - url: https://nas.com
   description: Nas.com production public website
 tags:
-- name: AI discovery
+- name: AI Discovery
   description: Public machine-readable resources for AI assistants, crawlers, and agents.
 paths:
   /llms.txt:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get the canonical Nas.com AI index
       operationId: getNasAiIndex
       responses:
@@ -31,7 +31,7 @@ paths:
   /llms-full.txt:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get the expanded Nas.com AI reference
       operationId: getNasFullAiReference
       responses:
@@ -44,7 +44,7 @@ paths:
   /.well-known/public-pages.json:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get the Nas.com public page catalog
       operationId: getNasPublicPageCatalog
       responses:
@@ -58,7 +58,7 @@ paths:
   /public-pages.md:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get the Nas.com public page catalog guide
       operationId: getNasPublicPageCatalogGuide
       responses:
@@ -71,7 +71,7 @@ paths:
   /public-pages/llms.txt:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get AI guidance for Nas.com public pages
       operationId: getNasPublicPagesAiGuidance
       responses:
@@ -84,7 +84,7 @@ paths:
   /docs:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get the Nas.com documentation page
       operationId: getNasDocsPage
       responses:
@@ -97,7 +97,7 @@ paths:
   /docs.md:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get the Nas.com documentation page as Markdown
       operationId: getNasDocsMarkdown
       responses:
@@ -110,7 +110,7 @@ paths:
   /ai:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get the Nas.com AI guide
       operationId: getNasAiGuide
       responses:
@@ -123,7 +123,7 @@ paths:
   /ai.md:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get the Nas.com AI guide as Markdown
       operationId: getNasAiGuideMarkdown
       responses:
@@ -136,7 +136,7 @@ paths:
   /ai/llms.txt:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get concise Nas.com AI instructions for agents
       operationId: getNasAiAgentInstructions
       responses:
@@ -149,7 +149,7 @@ paths:
   /help:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get the Nas.com help routing page
       operationId: getNasHelpPage
       responses:
@@ -162,7 +162,7 @@ paths:
   /help.md:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get the Nas.com help routing page as Markdown
       operationId: getNasHelpMarkdown
       responses:
@@ -175,7 +175,7 @@ paths:
   /help/llms.txt:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get concise Nas.com help instructions for agents
       operationId: getNasHelpAgentInstructions
       responses:
@@ -188,7 +188,7 @@ paths:
   /.well-known/agent.json:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get Nas.com agent discovery metadata
       operationId: getNasAgentJson
       responses:
@@ -201,7 +201,7 @@ paths:
   /.well-known/agent-card.json:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get the Nas.com A2A-style agent card
       operationId: getNasAgentCard
       responses:
@@ -215,7 +215,7 @@ paths:
   /.well-known/mcp.json:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get the Nas.com MCP manifest
       operationId: getNasMcpManifest
       responses:
@@ -229,7 +229,7 @@ paths:
   /.well-known/mcp/manifest.json:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get the Nas.com MCP manifest alias
       operationId: getNasMcpManifestAlias
       responses:
@@ -243,7 +243,7 @@ paths:
   /.well-known/mcp/server-card.json:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get the Nas.com MCP server card
       operationId: getNasMcpServerCard
       responses:
@@ -257,7 +257,7 @@ paths:
   /:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get the Nas.com homepage or agent-mode view
       operationId: getNasHomepage
       parameters:
@@ -283,7 +283,7 @@ paths:
   /api/agent/page-context:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get read-only public page context for web agents
       description: Returns read-only public context for public Nas.com pages, route families, and public discovery documents. Supported examples include community pages such as /creatorhub, community app sections such as /creatorhub/products, offer pages such as /creatorhub/events/sample-event, public app pages such as /get-started, /choose-a-plan, and /subscribe-plan, and discovery documents such as /public-pages.md. Private routes, authenticated routes, checkout/payment internals, admin/member-only views, API implementation details, MCP write tools, and unpublished content are outside this contract.
       operationId: getNasPublicPageAgentContext
@@ -347,7 +347,7 @@ paths:
   /schema-feeds.json:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get Nas.com JSON-LD schema feed
       operationId: getNasSchemaFeed
       responses:
@@ -360,7 +360,7 @@ paths:
   /pricing.md:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get API-backed Nas.com pricing summary
       operationId: getNasPricingSummary
       responses:
@@ -373,7 +373,7 @@ paths:
   /compare/shopify-vs-nas.md:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get Shopify and Nas.com comparison guidance
       operationId: getShopifyVsNasComparison
       responses:
@@ -386,7 +386,7 @@ paths:
   /compare/etsy-vs-nas.md:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get Etsy and Nas.com comparison guidance
       operationId: getEtsyVsNasComparison
       responses:
@@ -399,7 +399,7 @@ paths:
   /best/ai-selling-platforms.md:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get best AI selling platform guidance
       operationId: getBestAiSellingPlatformsGuide
       responses:
@@ -412,7 +412,7 @@ paths:
   /guides/sell-products-with-ai.md:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get guide for selling products with AI
       operationId: getSellProductsWithAiGuide
       responses:
@@ -425,7 +425,7 @@ paths:
   /guides/customer-acquisition-for-sellers.md:
     get:
       tags:
-      - AI discovery
+      - AI Discovery
       summary: Get customer acquisition guide for sellers
       operationId: getCustomerAcquisitionForSellersGuide
       responses:
@@ -437,6 +437,51 @@ paths:
                 type: string
 components:
   schemas:
+    AgentDiscovery:
+      type: object
+      additionalProperties: true
+      properties:
+        name:
+          type: string
+          example: Nas.com
+        url:
+          type: string
+          format: uri
+          example: https://nas.com/
+        description:
+          type: string
+        resources:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        agent_auth:
+          $ref: '#/components/schemas/AgentAuth'
+    StructuredApiErrorResponse:
+      type: object
+      required:
+      - error
+      properties:
+        error:
+          type: object
+          required:
+          - code
+          - message
+          - resolution
+          - status
+          properties:
+            code:
+              type: string
+              example: public_context_unavailable
+            message:
+              type: string
+              example: Public page agent context is not available for this path
+            resolution:
+              type: string
+              example: Use a public, crawlable Nas.com path.
+            status:
+              type: integer
+              example: 404
     PublicPageAgentContext:
       type: object
       required:
@@ -475,31 +520,6 @@ components:
           type: string
         type:
           type: string
-    StructuredApiErrorResponse:
-      type: object
-      required:
-      - error
-      properties:
-        error:
-          type: object
-          required:
-          - code
-          - message
-          - resolution
-          - status
-          properties:
-            code:
-              type: string
-              example: public_context_unavailable
-            message:
-              type: string
-              example: Public page agent context is not available for this path
-            resolution:
-              type: string
-              example: Use a public, crawlable Nas.com path.
-            status:
-              type: integer
-              example: 404
     AgentAuth:
       type: object
       required:
@@ -551,26 +571,6 @@ components:
           type: string
           format: uri
           example: https://nas.com/auth.md
-    AgentDiscovery:
-      type: object
-      additionalProperties: true
-      properties:
-        name:
-          type: string
-          example: Nas.com
-        url:
-          type: string
-          format: uri
-          example: https://nas.com/
-        description:
-          type: string
-        resources:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
-        agent_auth:
-          $ref: '#/components/schemas/AgentAuth'
 externalDocs:
   description: Nas.com developer resources
   url: https://nas.com/developers
