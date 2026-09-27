@@ -457,6 +457,57 @@ components:
             additionalProperties: true
         agent_auth:
           $ref: '#/components/schemas/AgentAuth'
+    AgentAuth:
+      type: object
+      required:
+      - authorization_server
+      - authorization_server_metadata
+      - mcp_endpoint
+      - oauth_protected_resource_metadata
+      - registration_endpoint_available
+      - status
+      properties:
+        status:
+          type: string
+          example: public_read_only_discovery_and_authenticated_hosted_mcp
+        identity_types_supported:
+          type: array
+          items:
+            type: string
+        credential_types_supported:
+          type: array
+          items:
+            type: string
+        mcp_endpoint:
+          type: string
+          format: uri
+          example: https://mcp.nas.com/mcp
+        oauth_protected_resource_metadata:
+          type: string
+          format: uri
+          example: https://mcp.nas.com/.well-known/oauth-protected-resource
+        authorization_server:
+          type: string
+          format: uri
+          example: https://auth.nas.io
+        authorization_server_metadata:
+          type: string
+          format: uri
+          example: https://auth.nas.io/.well-known/oauth-authorization-server
+        scopes_supported:
+          type: array
+          items:
+            type: string
+        registration_endpoint_available:
+          type: boolean
+          example: false
+        public_api_key_flow_available:
+          type: boolean
+          example: false
+        auth_docs:
+          type: string
+          format: uri
+          example: https://nas.com/auth.md
     StructuredApiErrorResponse:
       type: object
       required:
@@ -520,57 +571,6 @@ components:
           type: string
         type:
           type: string
-    AgentAuth:
-      type: object
-      required:
-      - authorization_server
-      - authorization_server_metadata
-      - mcp_endpoint
-      - oauth_protected_resource_metadata
-      - registration_endpoint_available
-      - status
-      properties:
-        status:
-          type: string
-          example: public_read_only_discovery_and_authenticated_hosted_mcp
-        identity_types_supported:
-          type: array
-          items:
-            type: string
-        credential_types_supported:
-          type: array
-          items:
-            type: string
-        mcp_endpoint:
-          type: string
-          format: uri
-          example: https://mcp.nas.com/mcp
-        oauth_protected_resource_metadata:
-          type: string
-          format: uri
-          example: https://mcp.nas.com/.well-known/oauth-protected-resource
-        authorization_server:
-          type: string
-          format: uri
-          example: https://auth.nas.io
-        authorization_server_metadata:
-          type: string
-          format: uri
-          example: https://auth.nas.io/.well-known/oauth-authorization-server
-        scopes_supported:
-          type: array
-          items:
-            type: string
-        registration_endpoint_available:
-          type: boolean
-          example: false
-        public_api_key_flow_available:
-          type: boolean
-          example: false
-        auth_docs:
-          type: string
-          format: uri
-          example: https://nas.com/auth.md
 externalDocs:
   description: Nas.com developer resources
   url: https://nas.com/developers
