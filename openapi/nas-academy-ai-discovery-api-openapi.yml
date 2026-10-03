@@ -437,6 +437,44 @@ paths:
                 type: string
 components:
   schemas:
+    PublicPageAgentContext:
+      type: object
+      required:
+      - canonicalUrl
+      - description
+      - mcpResourceUri
+      - path
+      - resources
+      - rules
+      - title
+      - type
+      properties:
+        canonicalUrl:
+          type: string
+          format: uri
+        description:
+          type: string
+        imageUrl:
+          type: string
+        mcpResourceUri:
+          type: string
+          example: nas-page://creatorhub
+        path:
+          type: string
+          example: /creatorhub
+        resources:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        rules:
+          type: array
+          items:
+            type: string
+        title:
+          type: string
+        type:
+          type: string
     AgentDiscovery:
       type: object
       additionalProperties: true
@@ -457,6 +495,31 @@ components:
             additionalProperties: true
         agent_auth:
           $ref: '#/components/schemas/AgentAuth'
+    StructuredApiErrorResponse:
+      type: object
+      required:
+      - error
+      properties:
+        error:
+          type: object
+          required:
+          - code
+          - message
+          - resolution
+          - status
+          properties:
+            code:
+              type: string
+              example: public_context_unavailable
+            message:
+              type: string
+              example: Public page agent context is not available for this path
+            resolution:
+              type: string
+              example: Use a public, crawlable Nas.com path.
+            status:
+              type: integer
+              example: 404
     AgentAuth:
       type: object
       required:
@@ -508,69 +571,6 @@ components:
           type: string
           format: uri
           example: https://nas.com/auth.md
-    StructuredApiErrorResponse:
-      type: object
-      required:
-      - error
-      properties:
-        error:
-          type: object
-          required:
-          - code
-          - message
-          - resolution
-          - status
-          properties:
-            code:
-              type: string
-              example: public_context_unavailable
-            message:
-              type: string
-              example: Public page agent context is not available for this path
-            resolution:
-              type: string
-              example: Use a public, crawlable Nas.com path.
-            status:
-              type: integer
-              example: 404
-    PublicPageAgentContext:
-      type: object
-      required:
-      - canonicalUrl
-      - description
-      - mcpResourceUri
-      - path
-      - resources
-      - rules
-      - title
-      - type
-      properties:
-        canonicalUrl:
-          type: string
-          format: uri
-        description:
-          type: string
-        imageUrl:
-          type: string
-        mcpResourceUri:
-          type: string
-          example: nas-page://creatorhub
-        path:
-          type: string
-          example: /creatorhub
-        resources:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
-        rules:
-          type: array
-          items:
-            type: string
-        title:
-          type: string
-        type:
-          type: string
 externalDocs:
   description: Nas.com developer resources
   url: https://nas.com/developers
