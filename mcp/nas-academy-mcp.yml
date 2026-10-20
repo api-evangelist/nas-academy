@@ -48,3 +48,28 @@ deployment:
   tools: 423
   checked: '2026-08-12'
   source: catalog MCP census
+tool_quality:
+  tool_count: 423
+  tokens_total: 154564
+  tokens_per_tool_median: 336
+  heavy_tools: []
+  heavy_tool_count: 0
+  params_total: 1999
+  params_undescribed: 1977
+  params_described_pct: 1.1
+  tools_with_undescribed_params: 413
+  tools_annotated: 423
+  annotated_pct: 100.0
+  state_changing_unhinted: []
+  tools_missing_schema: 0
+  short_descriptions: 0
+  duplicate_descriptions: 74
+  duplicate_names: 0
+  nonportable_names: []
+  output_schema_count: 0
+  token_estimate: chars/3.6 of each compact tool definition
+  source: mcp/nas-academy-mcp-tools.json
+  measured: '2026-10-20'
+  scored: false
+  note: Facts from the saved tools/list capture (mcp_tool_quality.py); recorded, not scored. Checks learned
+    from Glimind's agent-readiness audit.
