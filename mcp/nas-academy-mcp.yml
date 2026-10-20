@@ -21,21 +21,2266 @@ auth:
   authorization_server: https://auth.nas.io
   authorization_server_metadata: https://auth.nas.io/.well-known/oauth-authorization-server
 tools:
+- name: get_current_user
+  description: Get the profile of the currently authenticated Nas.com user.
+- name: list_my_business
+  description: List communities managed by the authenticated Nas.com user. Provide query to search by
+    community title, slug, or code. Business and community refer to the same thing and are interchangeable.
+- name: list_my_communities
+  description: List communities managed by the authenticated Nas.com user. Provide query to search by
+    community title, slug, or code. Business and community refer to the same thing and are interchangeable.
+- name: get_business
+  description: Get details for a community visible to the authenticated Nas.com user. Business and community
+    refer to the same thing and are interchangeable.
+- name: get_community
+  description: Get details for a community visible to the authenticated Nas.com user. Business and community
+    refer to the same thing and are interchangeable.
+- name: list_products
+  description: List unified products for a community managed by the authenticated Nas.com user. Before
+    offering this action or requesting its inputs, check business permissions. FREE businesses cannot
+    use this tool, regardless of individual feature rows. Call check_business_tool_access before collecting
+    inputs. Show any grace-period warning and verified resubscribe link before continuing, and never proceed
+    when access is blocked.
+- name: get_physical_product
+  description: Get editable physical product details for a community managed by the authenticated Nas.com
+    user. Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
 - name: list_members
+  description: List members for a community managed by the authenticated Nas.com user. Sort by subscriptionInfo.signUpDate
+    to order members by newest or oldest signup. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
   title: List members
   read_only: true
   required_scope: nas.members.read
-  description: List members for a community managed by the authenticated NAS user.
 - name: list_physical_product_orders
+  description: List orders for a physical product in a community managed by the authenticated Nas.com
+    user. Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
   title: List physical product orders
   read_only: true
   required_scope: nas.orders.read
-  description: List orders for a physical product in a community managed by the authenticated NAS user.
 - name: get_physical_product_order
+  description: Get a single physical product order in a community managed by the authenticated Nas.com
+    user. Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
   title: Get physical product order
   read_only: true
   required_scope: nas.orders.read
-  description: Get a single physical product order in a community managed by the authenticated NAS user.
+- name: update_business
+  description: Update editable community information such as title, description, slug, images, and category
+    for a community managed by the authenticated Nas.com user. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: update_community
+  description: Update editable community information such as title, description, slug, images, and category
+    for a community managed by the authenticated Nas.com user. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: create_physical_product
+  description: Create a draft physical product for a community managed by the authenticated Nas.com user.
+    Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: update_physical_product
+  description: Update editable physical product draft/configuration fields for a community managed by
+    the authenticated Nas.com user. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: delete_physical_product
+  description: Delete a physical product. Requires confirm set to DELETE. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: publish_physical_product
+  description: Publish a physical product. Requires confirm set to PUBLISH. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: unpublish_physical_product
+  description: Unpublish a physical product. Requires confirm set to UNPUBLISH. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_physical_product_inventory
+  description: Update inventory quantities for a physical product managed by the authenticated Nas.com
+    user. Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: create_folder_product
+  description: Create a folder-backed Nas.com product such as digital files or a course. Before offering
+    this action or requesting its inputs, check business permissions. FREE businesses cannot use this
+    tool, regardless of individual feature rows. Call check_business_tool_access before collecting inputs.
+    Show any grace-period warning and verified resubscribe link before continuing, and never proceed when
+    access is blocked.
+- name: get_folder_product
+  description: Get folder-backed product details for a community managed by the authenticated Nas.com
+    user. Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: update_folder_product
+  description: Update editable folder-backed product fields for digital files or courses. Before offering
+    this action or requesting its inputs, check business permissions. FREE businesses cannot use this
+    tool, regardless of individual feature rows. Call check_business_tool_access before collecting inputs.
+    Show any grace-period warning and verified resubscribe link before continuing, and never proceed when
+    access is blocked.
+- name: delete_folder_product
+  description: Delete a folder-backed product. Requires confirm set to DELETE. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: publish_folder_product
+  description: Publish a folder-backed product. Requires confirm set to PUBLISH. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: unpublish_folder_product
+  description: Unpublish a folder-backed product. Requires confirm set to UNPUBLISH. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: create_event
+  description: Create a draft event for a community managed by the authenticated Nas.com user. Before
+    offering this action or requesting its inputs, check business permissions. FREE businesses cannot
+    use this tool, regardless of individual feature rows. Call check_business_tool_access before collecting
+    inputs. Show any grace-period warning and verified resubscribe link before continuing, and never proceed
+    when access is blocked.
+- name: get_event
+  description: Get admin event details for a community managed by the authenticated Nas.com user. Before
+    offering this action or requesting its inputs, check business permissions. FREE businesses cannot
+    use this tool, regardless of individual feature rows. Call check_business_tool_access before collecting
+    inputs. Show any grace-period warning and verified resubscribe link before continuing, and never proceed
+    when access is blocked.
+- name: update_event
+  description: Update editable event fields for a community managed by the authenticated Nas.com user.
+    Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: delete_event
+  description: Delete an event. Requires confirm set to DELETE.
+- name: publish_event
+  description: Publish an event. Requires confirm set to PUBLISH. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: unpublish_event
+  description: Unpublish an event. Requires confirm set to UNPUBLISH. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: generate_lead_form
+  description: Generate a draft lead form for a community managed by the authenticated Nas.com user. This
+    tool resolves the backend template automatically; do not ask the user for a template id. Before offering
+    this action or requesting its inputs, check business permissions. FREE businesses cannot use this
+    tool, regardless of individual feature rows. Call check_business_tool_access before collecting inputs.
+    Show any grace-period warning and verified resubscribe link before continuing, and never proceed when
+    access is blocked.
+- name: list_lead_form_styles
+  description: List available lead form style presets for a community managed by the authenticated Nas.com
+    user. Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_lead_form
+  description: Get lead form details for a community managed by the authenticated Nas.com user. Before
+    offering this action or requesting its inputs, check business permissions. FREE businesses cannot
+    use this tool, regardless of individual feature rows. Call check_business_tool_access before collecting
+    inputs. Show any grace-period warning and verified resubscribe link before continuing, and never proceed
+    when access is blocked.
+- name: update_lead_form
+  description: Update editable lead form fields for a community managed by the authenticated Nas.com user.
+    Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: update_lead_form_style
+  description: Update the style for a lead form. If the form uses a default style, LPBE creates a custom
+    style and attaches it to the form. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: update_lead_form_style_preset
+  description: Update an existing custom lead form style preset. LPBE rejects default style presets. Before
+    offering this action or requesting its inputs, check business permissions. FREE businesses cannot
+    use this tool, regardless of individual feature rows. Call check_business_tool_access before collecting
+    inputs. Show any grace-period warning and verified resubscribe link before continuing, and never proceed
+    when access is blocked.
+- name: duplicate_lead_form
+  description: Duplicate a lead form as a draft for a community managed by the authenticated Nas.com user.
+    Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_lead_form_analytics
+  description: Get analytics for a lead form managed by the authenticated Nas.com user. Before offering
+    this action or requesting its inputs, check business permissions. FREE businesses cannot use this
+    tool, regardless of individual feature rows. Call check_business_tool_access before collecting inputs.
+    Show any grace-period warning and verified resubscribe link before continuing, and never proceed when
+    access is blocked.
+- name: get_lead_form_magic_ads
+  description: Get Magic Ads status/details for a lead form managed by the authenticated Nas.com user.
+    Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: list_lead_form_applicants
+  description: List applicants submitted to a lead form managed by the authenticated Nas.com user. Before
+    offering this action or requesting its inputs, check business permissions. FREE businesses cannot
+    use this tool, regardless of individual feature rows. Call check_business_tool_access before collecting
+    inputs. Show any grace-period warning and verified resubscribe link before continuing, and never proceed
+    when access is blocked.
+- name: get_lead_form_filtering_options
+  description: Get filtering options for lead form applicants. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: export_lead_form_applicants_csv
+  description: Export lead form applicants as CSV text for a lead form managed by the authenticated Nas.com
+    user. Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_lead_form_submission
+  description: Get one lead form applicant submission. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_lead_form_applicant_activity
+  description: Get one lead form applicant activity log. Before offering this action or requesting its
+    inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: delete_lead_form
+  description: Delete a lead form. Requires confirm set to DELETE. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: publish_lead_form
+  description: Publish a lead form. Requires confirm set to PUBLISH. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: unpublish_lead_form
+  description: Unpublish a lead form. Requires confirm set to UNPUBLISH. Before offering this action or
+    requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: create_zero_link
+  description: Create a Zero Link product for a community managed by the authenticated Nas.com user. Before
+    offering this action or requesting its inputs, check business permissions. FREE businesses cannot
+    use this tool, regardless of individual feature rows. Call check_business_tool_access before collecting
+    inputs. Show any grace-period warning and verified resubscribe link before continuing, and never proceed
+    when access is blocked.
+- name: list_zero_links
+  description: List Zero Link products for a community managed by the authenticated Nas.com user. Before
+    offering this action or requesting its inputs, check business permissions. FREE businesses cannot
+    use this tool, regardless of individual feature rows. Call check_business_tool_access before collecting
+    inputs. Show any grace-period warning and verified resubscribe link before continuing, and never proceed
+    when access is blocked.
+- name: get_zero_link
+  description: Get Zero Link product details for a community managed by the authenticated Nas.com user.
+    Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: update_zero_link
+  description: Update editable Zero Link fields for a community managed by the authenticated Nas.com user.
+    Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: delete_zero_link
+  description: Delete a Zero Link product. Requires confirm set to DELETE. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: publish_zero_link
+  description: Publish a Zero Link product. Requires confirm set to PUBLISH. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: unpublish_zero_link
+  description: Unpublish a Zero Link product. Requires confirm set to UNPUBLISH. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: create_session
+  description: Create a one-on-one session product for a community managed by the authenticated Nas.com
+    user. Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_session
+  description: Get one-on-one session product details for a community managed by the authenticated Nas.com
+    user. Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: update_session
+  description: Update a one-on-one session with the full LPBE session editor payload. Before offering
+    this action or requesting its inputs, check business permissions. FREE businesses cannot use this
+    tool, regardless of individual feature rows. Call check_business_tool_access before collecting inputs.
+    Show any grace-period warning and verified resubscribe link before continuing, and never proceed when
+    access is blocked.
+- name: delete_session
+  description: Delete a one-on-one session. Requires confirm set to DELETE. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: publish_session
+  description: Publish a one-on-one session using the full LPBE session editor payload. Requires confirm
+    set to PUBLISH. Before offering this action or requesting its inputs, check business permissions.
+    FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: unpublish_session
+  description: Unpublish a one-on-one session. Requires confirm set to UNPUBLISH. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: list_session_slots
+  description: List available one-on-one session slots for a date range and attendee timezone. Before
+    offering this action or requesting its inputs, check business permissions. FREE businesses cannot
+    use this tool, regardless of individual feature rows. Call check_business_tool_access before collecting
+    inputs. Show any grace-period warning and verified resubscribe link before continuing, and never proceed
+    when access is blocked.
+- name: get_session_host_info
+  description: Get host profile information for a one-on-one session host in a managed community. Before
+    offering this action or requesting its inputs, check business permissions. FREE businesses cannot
+    use this tool, regardless of individual feature rows. Call check_business_tool_access before collecting
+    inputs. Show any grace-period warning and verified resubscribe link before continuing, and never proceed
+    when access is blocked.
+- name: list_session_bookings
+  description: List bookings for a one-on-one session managed by the authenticated Nas.com user. Before
+    offering this action or requesting its inputs, check business permissions. FREE businesses cannot
+    use this tool, regardless of individual feature rows. Call check_business_tool_access before collecting
+    inputs. Show any grace-period warning and verified resubscribe link before continuing, and never proceed
+    when access is blocked.
+- name: export_session_bookings_csv
+  description: Export one-on-one session bookings as CSV text for a managed session. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: cancel_session_booking
+  description: Cancel a one-on-one session booking. Requires confirm set to CANCEL. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: list_my_session_bookings
+  description: List authenticated-user one-on-one session bookings by status, optionally scoped to a session.
+- name: create_challenge
+  description: Create a challenge product for a community managed by the authenticated Nas.com user. Before
+    offering this action or requesting its inputs, check business permissions. FREE businesses cannot
+    use this tool, regardless of individual feature rows. Call check_business_tool_access before collecting
+    inputs. Show any grace-period warning and verified resubscribe link before continuing, and never proceed
+    when access is blocked.
+- name: get_challenge
+  description: Get challenge product details for a community managed by the authenticated Nas.com user.
+    Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: update_challenge
+  description: Update editable challenge product fields for a community managed by the authenticated Nas.com
+    user. Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: delete_challenge
+  description: Delete a challenge. Requires confirm set to DELETE. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: publish_challenge
+  description: Publish a challenge. Requires confirm set to PUBLISH. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: unpublish_challenge
+  description: Unpublish a challenge. Requires confirm set to UNPUBLISH. Before offering this action or
+    requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: bulk_update_challenge_checkpoints
+  description: Create, update, delete, duplicate, and reorder checkpoints for a challenge product. Before
+    offering this action or requesting its inputs, check business permissions. FREE businesses cannot
+    use this tool, regardless of individual feature rows. Call check_business_tool_access before collecting
+    inputs. Show any grace-period warning and verified resubscribe link before continuing, and never proceed
+    when access is blocked.
+- name: get_cmp_home
+  description: Get the community manager home dashboard for a managed community. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: mark_cmp_home_tutorial_watched
+  description: Mark the community manager home tutorial as watched for a managed community. Before offering
+    this action or requesting its inputs, check business permissions. FREE businesses cannot use this
+    tool, regardless of individual feature rows. Call check_business_tool_access before collecting inputs.
+    Show any grace-period warning and verified resubscribe link before continuing, and never proceed when
+    access is blocked.
+- name: get_cmp_home_analytics
+  description: Get CMP home analytics for a managed community and duration. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_cmp_home_get_started
+  description: Get the business setup/get-started checklist for a managed community. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: dismiss_cmp_home_get_started
+  description: Dismiss the business setup/get-started checklist for a managed community. Before offering
+    this action or requesting its inputs, check business permissions. FREE businesses cannot use this
+    tool, regardless of individual feature rows. Call check_business_tool_access before collecting inputs.
+    Show any grace-period warning and verified resubscribe link before continuing, and never proceed when
+    access is blocked.
+- name: complete_cmp_home_get_started_item
+  description: Mark one get-started checklist item complete for a managed community. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: get_action_center
+  description: Get action center items for a managed community. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: dismiss_action_center_item
+  description: Dismiss one action center item for a managed community. Before offering this action or
+    requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_get_started_task_progress
+  description: Get detailed get-started task progress for a managed community. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_get_started_progress_percentage
+  description: Get the get-started completion percentage for a managed community. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: list_products_for_reordering
+  description: List all products for manager product reordering in a community. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_unified_product_display_settings
+  description: Update visibility and ordering for products displayed on a managed community business page.
+    Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: notify_unified_product_update
+  description: Send a notification for a unified product change log in a managed community. Before offering
+    this action or requesting its inputs, check business permissions. FREE businesses cannot use this
+    tool, regardless of individual feature rows. Call check_business_tool_access before collecting inputs.
+    Show any grace-period warning and verified resubscribe link before continuing, and never proceed when
+    access is blocked.
+- name: list_top_selling_products
+  description: List top-selling products for a community. Before offering this action or requesting its
+    inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_business_member_count
+  description: Get member counts for a community. Business and community refer to the same thing and are
+    interchangeable. Before offering this action or requesting its inputs, check business permissions.
+    FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_community_member_count
+  description: Get member counts for a community. Business and community refer to the same thing and are
+    interchangeable. Before offering this action or requesting its inputs, check business permissions.
+    FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: list_business_segments
+  description: List membership/member segments for a managed community. Business and community refer to
+    the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_community_segments
+  description: List membership/member segments for a managed community. Business and community refer to
+    the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_business_member
+  description: Get one member record for a managed community. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_community_member
+  description: Get one member record for a managed community. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_business_member_activity
+  description: Get merged activity logs for one member in a managed community. Business and community
+    refer to the same thing and are interchangeable. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_community_member_activity
+  description: Get merged activity logs for one member in a managed community. Business and community
+    refer to the same thing and are interchangeable. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: count_business_members_with_filters
+  description: Count members matching the same filters used by the manager member list. Business and community
+    refer to the same thing and are interchangeable. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: count_community_members_with_filters
+  description: Count members matching the same filters used by the manager member list. Business and community
+    refer to the same thing and are interchangeable. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: export_business_members
+  description: Export members for a managed community using the manager member filters. Business and community
+    refer to the same thing and are interchangeable. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: export_community_members
+  description: Export members for a managed community using the manager member filters. Business and community
+    refer to the same thing and are interchangeable. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: bulk_update_member_applications
+  description: Bulk update community member application status. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_magic_reach_products
+  description: List products available for Magic Reach message composition. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_magic_reach_bucket
+  description: Get one Magic Reach recipient bucket for a managed community. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_magic_reach_buckets
+  description: List Magic Reach recipient buckets for a managed community. To chain a result into another
+    Magic Reach tool, use its `bucket` field as bucketName or selectedBuckets; do not use `name` or `displayName`.
+    Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: search_magic_reach_recipients
+  description: Search recipients for a Magic Reach message using bucket and member filters. Before offering
+    this action or requesting its inputs, check business permissions. FREE businesses cannot use this
+    tool, regardless of individual feature rows. Call check_business_tool_access before collecting inputs.
+    Show any grace-period warning and verified resubscribe link before continuing, and never proceed when
+    access is blocked.
+- name: count_magic_reach_recipients
+  description: Count recipients for a Magic Reach message selection. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_magic_reach_messages
+  description: List Magic Reach messages for a managed community. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_magic_reach_message
+  description: Get one Magic Reach message by id. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_magic_reach_message_recipients
+  description: List recipients for one Magic Reach message. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_magic_reach_message_links
+  description: List tracked links for one Magic Reach message and platform. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_magic_reach_limit_and_stats
+  description: Get Magic Reach send limit and usage stats for a managed community. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: count_magic_reach_opt_outs
+  description: Count Magic Reach opt-outs for a managed community. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_magic_reach_opt_outs
+  description: List Magic Reach opt-outs for a managed community. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: create_magic_reach_message
+  description: Create a draft Magic Reach message for a managed community. Supports Lexical email editor
+    content via emailLexicalContent, or emailBodyText which MCP converts to content.root. Before offering
+    this action or requesting its inputs, check business permissions. FREE businesses cannot use this
+    tool, regardless of individual feature rows. Call check_business_tool_access before collecting inputs.
+    Show any grace-period warning and verified resubscribe link before continuing, and never proceed when
+    access is blocked.
+- name: update_magic_reach_message
+  description: Update a Magic Reach message for a managed community. Supports Lexical email editor content
+    via emailLexicalContent, or emailBodyText which MCP converts to content.root. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: delete_magic_reach_message
+  description: Delete a draft or scheduled Magic Reach message. Requires confirm set to DELETE. Before
+    offering this action or requesting its inputs, check business permissions. FREE businesses cannot
+    use this tool, regardless of individual feature rows. Call check_business_tool_access before collecting
+    inputs. Show any grace-period warning and verified resubscribe link before continuing, and never proceed
+    when access is blocked.
+- name: schedule_magic_reach_message
+  description: Schedule a Magic Reach message. Requires confirm set to SCHEDULE. Supports Lexical email
+    editor content via emailLexicalContent, or emailBodyText which MCP converts to content.root. Before
+    offering this action or requesting its inputs, check business permissions. FREE businesses cannot
+    use this tool, regardless of individual feature rows. Call check_business_tool_access before collecting
+    inputs. Show any grace-period warning and verified resubscribe link before continuing, and never proceed
+    when access is blocked.
+- name: delete_magic_reach_message_schedule
+  description: Remove the schedule from a Magic Reach message. Requires confirm set to DELETE. Before
+    offering this action or requesting its inputs, check business permissions. FREE businesses cannot
+    use this tool, regardless of individual feature rows. Call check_business_tool_access before collecting
+    inputs. Show any grace-period warning and verified resubscribe link before continuing, and never proceed
+    when access is blocked.
+- name: send_magic_reach_message
+  description: Send a Magic Reach message. Requires confirm set to SEND. Supports Lexical email editor
+    content via emailLexicalContent, or emailBodyText which MCP converts to content.root. Before offering
+    this action or requesting its inputs, check business permissions. FREE businesses cannot use this
+    tool, regardless of individual feature rows. Call check_business_tool_access before collecting inputs.
+    Show any grace-period warning and verified resubscribe link before continuing, and never proceed when
+    access is blocked.
+- name: send_magic_reach_test_message
+  description: Send a Magic Reach test message. Requires confirm set to SEND_TEST. Supports Lexical email
+    editor content via emailLexicalContent, or emailBodyText which MCP converts to content.root. Before
+    offering this action or requesting its inputs, check business permissions. FREE businesses cannot
+    use this tool, regardless of individual feature rows. Call check_business_tool_access before collecting
+    inputs. Show any grace-period warning and verified resubscribe link before continuing, and never proceed
+    when access is blocked.
+- name: send_magic_reach_stress_test_message
+  description: Send a Magic Reach stress test message. Requires confirm set to SEND_STRESS_TEST. Before
+    offering this action or requesting its inputs, check business permissions. FREE businesses cannot
+    use this tool, regardless of individual feature rows. Call check_business_tool_access before collecting
+    inputs. Show any grace-period warning and verified resubscribe link before continuing, and never proceed
+    when access is blocked.
+- name: export_magic_reach_message_recipients_csv
+  description: Export archived recipients for one Magic Reach message as CSV text. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: list_user_custom_domains
+  description: List custom domains owned by the authenticated Nas.com user.
+- name: list_business_custom_domains
+  description: List custom domains for a community managed by the authenticated Nas.com user. Business
+    and community refer to the same thing and are interchangeable. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_community_custom_domains
+  description: List custom domains for a community managed by the authenticated Nas.com user. Business
+    and community refer to the same thing and are interchangeable. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: search_custom_domains
+  description: Search available custom domains for a managed community. Before offering this action or
+    requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_custom_domain_pricing
+  description: Get pricing for a custom domain search result. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_existing_custom_domain_pricing
+  description: Get pricing for an existing custom domain selection. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: verify_custom_domain_payment
+  description: Verify a custom-domain signup payment for a managed community. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_custom_domain_order_status
+  description: Get custom-domain order status for a managed community. Before offering this action or
+    requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_business_custom_domain_status
+  description: Get aggregate custom-domain status for a managed community. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_community_custom_domain_status
+  description: Get aggregate custom-domain status for a managed community. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_custom_domain_status
+  description: Get DNS and activation status for one custom domain. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_custom_domain_order_billing_history
+  description: Get billing history for a custom-domain order owned by the authenticated user.
+- name: get_business_custom_domain_order_billing_history
+  description: Get billing history for a custom-domain order in a managed community. Business and community
+    refer to the same thing and are interchangeable. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_community_custom_domain_order_billing_history
+  description: Get billing history for a custom-domain order in a managed community. Business and community
+    refer to the same thing and are interchangeable. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: create_custom_domain_signup
+  description: Create a signed custom-domain signup for a managed community. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: confirm_custom_domain_signup
+  description: Confirm a signed custom-domain signup payment for a managed community. Before offering
+    this action or requesting its inputs, check business permissions. FREE businesses cannot use this
+    tool, regardless of individual feature rows. Call check_business_tool_access before collecting inputs.
+    Show any grace-period warning and verified resubscribe link before continuing, and never proceed when
+    access is blocked.
+- name: connect_external_custom_domain
+  description: Connect an externally owned custom domain to a managed community. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: connect_existing_custom_domain
+  description: Connect an existing custom domain to a managed community. Before offering this action or
+    requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: disconnect_custom_domain
+  description: Disconnect a custom domain from a managed community. Requires confirm set to DISCONNECT.
+    Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: confirm_custom_domain_dns_records
+  description: Confirm DNS records for a custom domain in a managed community. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: delete_custom_domain
+  description: Delete an external custom domain owned by the authenticated user. Requires confirm set
+    to DELETE.
+- name: delete_business_custom_domain
+  description: Delete an external custom domain from a managed community. Requires confirm set to DELETE.
+    Business and community refer to the same thing and are interchangeable. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: delete_community_custom_domain
+  description: Delete an external custom domain from a managed community. Requires confirm set to DELETE.
+    Business and community refer to the same thing and are interchangeable. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: set_custom_domain_subscription_cancellation
+  description: Update subscription cancellation state for a custom-domain order. Requires confirm set
+    to UPDATE_SUBSCRIPTION.
+- name: set_business_custom_domain_subscription_cancellation
+  description: Update subscription cancellation state for a custom-domain order in a managed community.
+    Requires confirm set to UPDATE_SUBSCRIPTION. Business and community refer to the same thing and are
+    interchangeable. Before offering this action or requesting its inputs, check business permissions.
+    FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: set_community_custom_domain_subscription_cancellation
+  description: Update subscription cancellation state for a custom-domain order in a managed community.
+    Requires confirm set to UPDATE_SUBSCRIPTION. Business and community refer to the same thing and are
+    interchangeable. Before offering this action or requesting its inputs, check business permissions.
+    FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: update_custom_domain_payment_method
+  description: Update the payment method for a custom-domain order. Requires confirm set to UPDATE_PAYMENT_METHOD.
+- name: update_business_custom_domain_payment_method
+  description: Update the payment method for a custom-domain order in a managed community. Requires confirm
+    set to UPDATE_PAYMENT_METHOD. Business and community refer to the same thing and are interchangeable.
+    Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: update_community_custom_domain_payment_method
+  description: Update the payment method for a custom-domain order in a managed community. Requires confirm
+    set to UPDATE_PAYMENT_METHOD. Business and community refer to the same thing and are interchangeable.
+    Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: list_magic_audience_campaigns
+  description: List Magic Audience / Magic Ads campaigns for a managed community. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: get_magic_audience_campaign
+  description: Get one Magic Audience / Magic Ads campaign for a managed community. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: get_magic_audience_ad
+  description: Get one Magic Audience ad object for a campaign. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_magic_audience_products
+  description: List products available for Magic Audience campaigns. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_magic_audience_recommended_products
+  description: List recommended products for Magic Audience campaign creation. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_advertisement_magic_audience_products
+  description: List products available to the advertisement Magic Audience flow. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: get_magic_audience_video_upload_status
+  description: Get Meta video upload status for a Magic Audience video id. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_magic_audience_campaign_estimate
+  description: Get campaign estimate for a Magic Audience campaign. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: search_magic_audience_geolocations
+  description: Search Meta Ads geolocation targets for Magic Audience. Before offering this action or
+    requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_magic_audience_meta_pages
+  description: List Meta pages available to connect for Magic Audience. Before offering this action or
+    requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_magic_ads_minimum_spend
+  description: Get the minimum spend configured for Magic Ads campaigns.
+- name: list_magic_ads_leads
+  description: List leads captured by a Magic Audience campaign. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: has_magic_ads_connected
+  description: Check whether a community has Magic Ads connected. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: create_magic_audience_campaign
+  description: Create a Magic Audience / Magic Ads campaign for a managed community. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: update_magic_audience_campaign
+  description: Update Magic Audience campaign budget, duration, targeting, start time, or status. Before
+    offering this action or requesting its inputs, check business permissions. FREE businesses cannot
+    use this tool, regardless of individual feature rows. Call check_business_tool_access before collecting
+    inputs. Show any grace-period warning and verified resubscribe link before continuing, and never proceed
+    when access is blocked.
+- name: delete_magic_audience_campaign
+  description: Delete a Magic Audience campaign. Requires confirm set to DELETE. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: generate_magic_audience_campaign_with_ads
+  description: Generate a Magic Audience campaign with ads from product or asset context. Before offering
+    this action or requesting its inputs, check business permissions. FREE businesses cannot use this
+    tool, regardless of individual feature rows. Call check_business_tool_access before collecting inputs.
+    Show any grace-period warning and verified resubscribe link before continuing, and never proceed when
+    access is blocked.
+- name: preview_magic_audience_campaign_with_ads
+  description: Generate a preview for a Magic Audience campaign with ads. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: create_magic_audience_ad
+  description: Create a Magic Audience ad object under a campaign. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_magic_audience_ad
+  description: Update a Magic Audience ad object under a campaign. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: upload_magic_audience_video
+  description: Start Meta video upload for a Magic Audience video link. Before offering this action or
+    requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: connect_magic_audience_facebook_page
+  description: Connect a Facebook page to the business for Magic Audience. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: disconnect_magic_audience_facebook_page
+  description: Disconnect a Facebook page from Magic Audience. Requires confirm set to DISCONNECT. Before
+    offering this action or requesting its inputs, check business permissions. FREE businesses cannot
+    use this tool, regardless of individual feature rows. Call check_business_tool_access before collecting
+    inputs. Show any grace-period warning and verified resubscribe link before continuing, and never proceed
+    when access is blocked.
+- name: apply_for_magic_audience
+  description: Submit a managed community application for Magic Audience. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_advertisement_pixels
+  description: Update advertisement tracking pixels for a managed community. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: create_magic_audience_application
+  description: Create a Magic Audience application through the advertisement flow. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: get_physical_product_option_combinations
+  description: Calculate available option and variant combinations for a managed physical product draft.
+    Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: generate_physical_product_with_ai
+  description: Generate a physical product draft from cover media using the LPBE AI generation flow. Before
+    offering this action or requesting its inputs, check business permissions. FREE businesses cannot
+    use this tool, regardless of individual feature rows. Call check_business_tool_access before collecting
+    inputs. Show any grace-period warning and verified resubscribe link before continuing, and never proceed
+    when access is blocked.
+- name: get_physical_product_magic_ads_status
+  description: Get Magic Ads status for a managed physical product. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_physical_product_abandoned_carts
+  description: List abandoned carts for a managed physical product. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: generate_physical_product_cover_media
+  description: Generate cover media assets for a managed physical product. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_physical_product_overview
+  description: Get overview data for a managed physical product. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_physical_product_inventory
+  description: Get inventory data for a managed physical product. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_physical_product_option_images
+  description: List option image combinations for a managed physical product. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_physical_product_analytics
+  description: Get analytics for a managed physical product. LPBE applies financial-data permissions.
+    Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_physical_product_order_summary
+  description: Get order tab summary for a managed physical product. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_physical_product_order_status_summary
+  description: Get order status summary for a managed physical product. Before offering this action or
+    requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_physical_product_order_filtering_options
+  description: Get available order filtering options for a managed physical product. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: list_physical_product_pending_shipments
+  description: List pending shipment orders for a managed physical product. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: export_physical_product_orders_csv
+  description: Export physical product orders as CSV text for a managed physical product. Before offering
+    this action or requesting its inputs, check business permissions. FREE businesses cannot use this
+    tool, regardless of individual feature rows. Call check_business_tool_access before collecting inputs.
+    Show any grace-period warning and verified resubscribe link before continuing, and never proceed when
+    access is blocked.
+- name: mark_physical_product_order_shipped
+  description: Mark a physical product order as shipped. Requires confirm set to SHIP. Before offering
+    this action or requesting its inputs, check business permissions. FREE businesses cannot use this
+    tool, regardless of individual feature rows. Call check_business_tool_access before collecting inputs.
+    Show any grace-period warning and verified resubscribe link before continuing, and never proceed when
+    access is blocked.
+- name: create_physical_product_customer_ticket
+  description: Create a refund or cancellation customer ticket for a physical product order. Before offering
+    this action or requesting its inputs, check business permissions. FREE businesses cannot use this
+    tool, regardless of individual feature rows. Call check_business_tool_access before collecting inputs.
+    Show any grace-period warning and verified resubscribe link before continuing, and never proceed when
+    access is blocked.
+- name: list_physical_product_open_customer_tickets
+  description: List open customer tickets for a managed physical product. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: resolve_physical_product_customer_ticket
+  description: Approve or reject a physical product customer ticket. Requires confirm set to RESOLVE.
+    Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: list_challenge_participants
+  description: List participants for a challenge with manager filters and checkpoint paging. Before offering
+    this action or requesting its inputs, check business permissions. FREE businesses cannot use this
+    tool, regardless of individual feature rows. Call check_business_tool_access before collecting inputs.
+    Show any grace-period warning and verified resubscribe link before continuing, and never proceed when
+    access is blocked.
+- name: get_challenge_participant
+  description: Get one participant for a challenge. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_challenge_available_upsells
+  description: Get upsells available for a challenge. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_challenge_checkpoint
+  description: Get one challenge checkpoint with user context. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: duplicate_challenge_checkpoint
+  description: Duplicate a challenge checkpoint to selected destinations. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_challenge_checkpoint_event
+  description: Create or update the event attached to a challenge checkpoint. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: delete_challenge_checkpoint_event
+  description: Delete the event attached to a challenge checkpoint. Requires confirm set to DELETE_EVENT.
+    Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: declare_challenge_winners
+  description: Declare or unset challenge winners. Requires confirm set to DECLARE_WINNERS. Before offering
+    this action or requesting its inputs, check business permissions. FREE businesses cannot use this
+    tool, regardless of individual feature rows. Call check_business_tool_access before collecting inputs.
+    Show any grace-period warning and verified resubscribe link before continuing, and never proceed when
+    access is blocked.
+- name: remove_challenge_participants
+  description: Remove participants from a challenge. Requires confirm set to REMOVE. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: add_challenge_participants
+  description: Add participants to a challenge by email. Before offering this action or requesting its
+    inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: award_challenge_checkpoint_points
+  description: Award points to a participant for a challenge checkpoint. Before offering this action or
+    requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: reset_challenge_checkpoint_points
+  description: Reset checkpoint points for a challenge participant. Requires confirm set to RESET_POINTS.
+    Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_challenge_participant_checkpoint_for_cm
+  description: Get one participant checkpoint using the community-manager view. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_challenge_participant
+  description: Update one challenge participant status. Before offering this action or requesting its
+    inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_challenge_end_state
+  description: Get challenge end-state counts and winners. Before offering this action or requesting its
+    inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: duplicate_challenge
+  description: Duplicate a challenge. Requires confirm set to DUPLICATE. Before offering this action or
+    requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_challenge_checkpoint_dates
+  description: Update checkpoint dates for a challenge. Before offering this action or requesting its
+    inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: calculate_challenge_checkpoint_dates
+  description: Calculate checkpoint dates for a challenge. Before offering this action or requesting its
+    inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: authenticate_business_facebook_tracking
+  description: Exchange a Facebook OAuth code for an access token for community tracking setup. Business
+    and community refer to the same thing and are interchangeable. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: authenticate_community_facebook_tracking
+  description: Exchange a Facebook OAuth code for an access token for community tracking setup. Business
+    and community refer to the same thing and are interchangeable. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_business_facebook_businesses
+  description: List Facebook businesses available to the provided Facebook access token. Business and
+    community refer to the same thing and are interchangeable. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_community_facebook_businesses
+  description: List Facebook businesses available to the provided Facebook access token. Business and
+    community refer to the same thing and are interchangeable. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_business_facebook_business_pixels
+  description: List Facebook pixels for a selected business during community tracking setup. Business
+    and community refer to the same thing and are interchangeable. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_community_facebook_business_pixels
+  description: List Facebook pixels for a selected business during community tracking setup. Business
+    and community refer to the same thing and are interchangeable. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: connect_business_facebook_pixel
+  description: Connect a Facebook pixel to a managed community. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: connect_community_facebook_pixel
+  description: Connect a Facebook pixel to a managed community. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_manager_notification_preferences
+  description: Get notification preferences for a community manager. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_business_notification_preference
+  description: Update the current user notification preference for a community trigger. Business and community
+    refer to the same thing and are interchangeable. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_community_notification_preference
+  description: Update the current user notification preference for a community trigger. Business and community
+    refer to the same thing and are interchangeable. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_business_permissions
+  description: Get feature permissions for a managed community, optionally including usage. Business and
+    community refer to the same thing and are interchangeable.
+- name: get_community_permissions
+  description: Get feature permissions for a managed community, optionally including usage. Business and
+    community refer to the same thing and are interchangeable.
+- name: list_feature_plan_permissions
+  description: List feature permissions available across plans.
+- name: get_referral_code_details
+  description: Get public details for a referral code.
+- name: list_my_referral_business
+  description: List communities attributed to the authenticated referral code. Business and community
+    refer to the same thing and are interchangeable.
+- name: list_my_referral_communities
+  description: List communities attributed to the authenticated referral code. Business and community
+    refer to the same thing and are interchangeable.
+- name: get_my_referral_earnings
+  description: Get earnings for the authenticated user referral code.
+- name: create_my_referral_code
+  description: Create a referral code for the authenticated user if absent.
+- name: retrieve_or_create_business_referral_code
+  description: Retrieve or create the referral code for a managed community. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: retrieve_or_create_community_referral_code
+  description: Retrieve or create the referral code for a managed community. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_business_referral_reward_summary
+  description: Get referral reward summary for a managed community. Business and community refer to the
+    same thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_community_referral_reward_summary
+  description: Get referral reward summary for a managed community. Business and community refer to the
+    same thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: list_business_referees
+  description: List referred communities/referees for a managed community. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_community_referees
+  description: List referred communities/referees for a managed community. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_get_inspired_page
+  description: Get Get Inspired page state for a managed community. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_get_inspired_template
+  description: Get one Get Inspired template for a managed community. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: stop_get_inspired_ai_generation
+  description: Stop Get Inspired AI template generation for a community. Before offering this action or
+    requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: create_image_asset_upload
+  description: Create a presigned upload URL for an image asset. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_business_video_presigned_url
+  description: Get a signed PUT URL for uploading a community video. Business and community refer to the
+    same thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_community_video_presigned_url
+  description: Get a signed PUT URL for uploading a community video. Business and community refer to the
+    same thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: update_folder_product_indices
+  description: Reorder folder-backed products for a managed community. Before offering this action or
+    requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: create_folder_item
+  description: Create an item inside a folder-backed product. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_folder_item
+  description: Get a folder item by ID. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: update_folder_item
+  description: Update a folder item inside a folder-backed product. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: delete_folder_item
+  description: Delete a folder item. Requires confirm set to DELETE. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_folder_item_upload_url
+  description: Get signed upload URL details for a folder item upload. Before offering this action or
+    requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: complete_folder_item_upload
+  description: Complete a multipart folder item upload. Before offering this action or requesting its
+    inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: reorder_folder_items
+  description: Reorder items inside a folder-backed product. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: check_business_storage
+  description: Check whether a community can upload a file of the provided size. Business and community
+    refer to the same thing and are interchangeable. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: check_community_storage
+  description: Check whether a community can upload a file of the provided size. Business and community
+    refer to the same thing and are interchangeable. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_business_storage
+  description: Retrieve community storage usage information. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_community_storage
+  description: Retrieve community storage usage information. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: list_business_transactions
+  description: List revenue transactions for a community managed by the authenticated Nas.com user. Business
+    and community refer to the same thing and are interchangeable. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_community_transactions
+  description: List revenue transactions for a community managed by the authenticated Nas.com user. Business
+    and community refer to the same thing and are interchangeable. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_transaction_zero_link_filter_options
+  description: Get Zero Link filter options for community transaction reporting. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: get_transaction_event_filter_options
+  description: Get event filter options for community transaction reporting. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_transaction_product_filter_options
+  description: Get folder product filter options for community transaction reporting. Before offering
+    this action or requesting its inputs, check business permissions. FREE businesses cannot use this
+    tool, regardless of individual feature rows. Call check_business_tool_access before collecting inputs.
+    Show any grace-period warning and verified resubscribe link before continuing, and never proceed when
+    access is blocked.
+- name: get_transaction_challenge_filter_options
+  description: Get challenge filter options for community transaction reporting. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: get_transaction_physical_product_filter_options
+  description: Get physical product filter options for community transaction reporting. Before offering
+    this action or requesting its inputs, check business permissions. FREE businesses cannot use this
+    tool, regardless of individual feature rows. Call check_business_tool_access before collecting inputs.
+    Show any grace-period warning and verified resubscribe link before continuing, and never proceed when
+    access is blocked.
+- name: get_transaction_discount_filter_options
+  description: Get discount-code filter options for community transaction reporting. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: get_business_revenues
+  description: Get revenue summary data for a community managed by the authenticated Nas.com user. Business
+    and community refer to the same thing and are interchangeable. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_community_revenues
+  description: Get revenue summary data for a community managed by the authenticated Nas.com user. Business
+    and community refer to the same thing and are interchangeable. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_transaction_invoice_config
+  description: Get invoice configuration for a community transaction. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_business_summary
+  description: Get the monthly summary for a managed community. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_community_summary
+  description: Get the monthly summary for a managed community. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: check_business_summary_exists
+  description: Check whether a community monthly summary exists. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: check_community_summary_exists
+  description: Check whether a community monthly summary exists. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: create_upsell
+  description: Create an upsell from one community product to another. Before offering this action or
+    requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_upsell_products
+  description: List products that can be selected for an upsell. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_upsell
+  description: Get an upsell by ID. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: update_upsell
+  description: Update an upsell and optional discount configuration. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: delete_upsell
+  description: Delete an upsell. Requires confirm set to DELETE. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_business_chat_settings
+  description: Update chat availability and welcome settings for a community. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_community_chat_settings
+  description: Update chat availability and welcome settings for a community. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: has_unread_business_chat
+  description: Check whether a managed community has unread chat messages. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: has_unread_community_chat
+  description: Check whether a managed community has unread chat messages. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: has_new_unread_business_chat
+  description: Check whether a managed community has unread chat messages after an object ID. Business
+    and community refer to the same thing and are interchangeable. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: has_new_unread_community_chat
+  description: Check whether a managed community has unread chat messages after an object ID. Business
+    and community refer to the same thing and are interchangeable. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_available_chat_for_cm
+  description: Get or locate the available chat for a community manager. Before offering this action or
+    requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_business_chats_for_cmp
+  description: List community chats for the community manager inbox. Business and community refer to the
+    same thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: list_community_chats_for_cmp
+  description: List community chats for the community manager inbox. Business and community refer to the
+    same thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: initialize_chat_for_cm
+  description: Initialize a community-manager chat with a learner. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_business_chat_status
+  description: Update the status of a community chat. Business and community refer to the same thing and
+    are interchangeable. Before offering this action or requesting its inputs, check business permissions.
+    FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: update_community_chat_status
+  description: Update the status of a community chat. Business and community refer to the same thing and
+    are interchangeable. Before offering this action or requesting its inputs, check business permissions.
+    FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: list_business_payouts
+  description: List payouts for a managed community. Business and community refer to the same thing and
+    are interchangeable. Before offering this action or requesting its inputs, check business permissions.
+    FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: list_community_payouts
+  description: List payouts for a managed community. Business and community refer to the same thing and
+    are interchangeable. Before offering this action or requesting its inputs, check business permissions.
+    FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: create_business_payout_on_demand
+  description: Create an on-demand payout for a community owner. Requires confirm set to CREATE_PAYOUT.
+    Business and community refer to the same thing and are interchangeable. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: create_community_payout_on_demand
+  description: Create an on-demand payout for a community owner. Requires confirm set to CREATE_PAYOUT.
+    Business and community refer to the same thing and are interchangeable. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_business_payout_account
+  description: Get payout account configuration for a managed community. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_community_payout_account
+  description: Get payout account configuration for a managed community. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: create_business_payout_account
+  description: Create payout account configuration for a managed community. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: create_community_payout_account
+  description: Create payout account configuration for a managed community. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_business_stripe_connect_account
+  description: Update Stripe Connect payout account configuration. Business and community refer to the
+    same thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: update_community_stripe_connect_account
+  description: Update Stripe Connect payout account configuration. Business and community refer to the
+    same thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: delete_business_payout_account
+  description: Delete payout account configuration for a managed community. Requires confirm set to DELETE.
+    Business and community refer to the same thing and are interchangeable. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: delete_community_payout_account
+  description: Delete payout account configuration for a managed community. Requires confirm set to DELETE.
+    Business and community refer to the same thing and are interchangeable. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: mark_monetisation_modal_viewed
+  description: Mark the monetisation modal as viewed for a managed community. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: set_money_page_viewed
+  description: Set whether the community money page has been viewed. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_manager_todo_progress
+  description: Recalculate and update one manager onboarding todo progress item. Before offering this
+    action or requesting its inputs, check business permissions. FREE businesses cannot use this tool,
+    regardless of individual feature rows. Call check_business_tool_access before collecting inputs. Show
+    any grace-period warning and verified resubscribe link before continuing, and never proceed when access
+    is blocked.
+- name: get_business_application_config
+  description: Get active community application configuration for a manager. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_community_application_config
+  description: Get active community application configuration for a manager. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_business_application_config
+  description: Update application form fields for a managed community. Business and community refer to
+    the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_community_application_config
+  description: Update application form fields for a managed community. Business and community refer to
+    the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_business_tiered_prices
+  description: Update membership tiers and prices for a managed community. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_community_tiered_prices
+  description: Update membership tiers and prices for a managed community. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_business_admin_count_with_limit
+  description: Get current admin count and limit for a managed community. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_community_admin_count_with_limit
+  description: Get current admin count and limit for a managed community. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_business_admin_status
+  description: Check admin status for one or more emails. Business and community refer to the same thing
+    and are interchangeable. Before offering this action or requesting its inputs, check business permissions.
+    FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_community_admin_status
+  description: Check admin status for one or more emails. Business and community refer to the same thing
+    and are interchangeable. Before offering this action or requesting its inputs, check business permissions.
+    FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: add_business_admins
+  description: Invite or add admin users to a managed community. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: add_community_admins
+  description: Invite or add admin users to a managed community. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: remove_business_admin
+  description: Remove an admin from a community. Requires confirm set to DELETE. Business and community
+    refer to the same thing and are interchangeable. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: remove_community_admin
+  description: Remove an admin from a community. Requires confirm set to DELETE. Business and community
+    refer to the same thing and are interchangeable. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_business_manager_config
+  description: Update permissions for a community manager membership. Business and community refer to
+    the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_community_manager_config
+  description: Update permissions for a community manager membership. Business and community refer to
+    the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: remove_business_member
+  description: Remove a learner from a managed community. Requires confirm set to REMOVE_MEMBER. Business
+    and community refer to the same thing and are interchangeable. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: remove_community_member
+  description: Remove a learner from a managed community. Requires confirm set to REMOVE_MEMBER. Business
+    and community refer to the same thing and are interchangeable. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_business_analytics
+  description: Get member, country, and revenue analytics for a community. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_community_analytics
+  description: Get member, country, and revenue analytics for a community. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_business_analytics_graph
+  description: Get graph datapoints for community analytics. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_community_analytics_graph
+  description: Get graph datapoints for community analytics. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_business_sales_summary
+  description: Business and community refer to the same thing and are interchangeable. Get completed sales,
+    customers, gross sales, net revenue, and average order value for one managed business and period.
+    Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_business_product_sales
+  description: Business and community refer to the same thing and are interchangeable. Get ranked product
+    sales, customers, gross sales, net revenue, and average order value for one managed business and period.
+    Before offering this action or requesting its inputs, check business permissions. FREE businesses
+    cannot use this tool, regardless of individual feature rows. Call check_business_tool_access before
+    collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: list_business_members_for_admin
+  description: Call the legacy manager memberships-for-admin route. Business and community refer to the
+    same thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: list_community_members_for_admin
+  description: Call the legacy manager memberships-for-admin route. Business and community refer to the
+    same thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_whatsapp_business_member
+  description: Get a WhatsApp community member by WhatsApp ID. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_whatsapp_community_member
+  description: Get a WhatsApp community member by WhatsApp ID. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: delete_whatsapp_business_member
+  description: Delete a WhatsApp community member. Requires confirm set to DELETE. Business and community
+    refer to the same thing and are interchangeable. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: delete_whatsapp_community_member
+  description: Delete a WhatsApp community member. Requires confirm set to DELETE. Business and community
+    refer to the same thing and are interchangeable. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: validate_business_discount_code
+  description: Validate whether a discount code is available for a community. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: validate_community_discount_code
+  description: Validate whether a discount code is available for a community. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_discount_products
+  description: List community products that can be linked to discounts. Before offering this action or
+    requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_business_discounts
+  description: List discounts for a managed community. Business and community refer to the same thing
+    and are interchangeable. Before offering this action or requesting its inputs, check business permissions.
+    FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: list_community_discounts
+  description: List discounts for a managed community. Business and community refer to the same thing
+    and are interchangeable. Before offering this action or requesting its inputs, check business permissions.
+    FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_business_discount
+  description: Get details for one community discount. Business and community refer to the same thing
+    and are interchangeable. Before offering this action or requesting its inputs, check business permissions.
+    FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_community_discount
+  description: Get details for one community discount. Business and community refer to the same thing
+    and are interchangeable. Before offering this action or requesting its inputs, check business permissions.
+    FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: create_business_discount
+  description: Create a discount code for a managed community. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: create_community_discount
+  description: Create a discount code for a managed community. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: update_business_discount
+  description: Update active state for a community discount. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: update_community_discount
+  description: Update active state for a community discount. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: list_business_earnings
+  description: List earnings data for a managed community. Business and community refer to the same thing
+    and are interchangeable. Before offering this action or requesting its inputs, check business permissions.
+    FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: list_community_earnings
+  description: List earnings data for a managed community. Business and community refer to the same thing
+    and are interchangeable. Before offering this action or requesting its inputs, check business permissions.
+    FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: list_business_activities
+  description: List recent activity feed items for a managed community. Business and community refer to
+    the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_community_activities
+  description: List recent activity feed items for a managed community. Business and community refer to
+    the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_business_analytics_v2
+  description: Get analyticsV2 source or product analytics for a community. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_community_analytics_v2
+  description: Get analyticsV2 source or product analytics for a community. Business and community refer
+    to the same thing and are interchangeable. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_business_monthly_analytics_overview
+  description: Get monthly analytics overview for a community. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_community_monthly_analytics_overview
+  description: Get monthly analytics overview for a community. Business and community refer to the same
+    thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_business_mail
+  description: Get community mail content for a mail type. Business and community refer to the same thing
+    and are interchangeable. Before offering this action or requesting its inputs, check business permissions.
+    FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: get_community_mail
+  description: Get community mail content for a mail type. Business and community refer to the same thing
+    and are interchangeable. Before offering this action or requesting its inputs, check business permissions.
+    FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: update_business_mail
+  description: Update community mail content and subject. Business and community refer to the same thing
+    and are interchangeable. Before offering this action or requesting its inputs, check business permissions.
+    FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: update_community_mail
+  description: Update community mail content and subject. Business and community refer to the same thing
+    and are interchangeable. Before offering this action or requesting its inputs, check business permissions.
+    FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: validate_business_mail
+  description: Validate community mail content without sending it. Business and community refer to the
+    same thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: validate_community_mail
+  description: Validate community mail content without sending it. Business and community refer to the
+    same thing and are interchangeable. Before offering this action or requesting its inputs, check business
+    permissions. FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: send_business_mail
+  description: Send community mail to recipients. Requires confirm set to SEND_MAIL. Business and community
+    refer to the same thing and are interchangeable. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: send_community_mail
+  description: Send community mail to recipients. Requires confirm set to SEND_MAIL. Business and community
+    refer to the same thing and are interchangeable. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_entity_abandoned_checkouts
+  description: List abandoned checkout users for a community entity. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: record_cmp_visit
+  description: Record a community manager visit marketing event. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: extract_external_product
+  description: Extract metadata for an external product URL. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_external_product
+  description: Create or update an external product for a community. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: batch_get_creative_assets
+  description: Batch get creative assets for a managed community. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: edit_creative_asset
+  description: Edit a product creative asset with a direction prompt. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: regenerate_creative_asset
+  description: Regenerate a product creative asset. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: import_creative_asset
+  description: Import an image URL as a product creative asset. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_magic_contents
+  description: List Magic Content assets for a managed community. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_magic_content_settings
+  description: Get Magic Content generation settings for a community. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_magic_content_styles
+  description: List Magic Content style presets for a community. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: generate_magic_content_prompt
+  description: Generate a creative direction prompt for Magic Content. Before offering this action or
+    requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: generate_magic_content_from_scratch
+  description: Generate Magic Content directly from a creative direction. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_magic_content
+  description: Get one Magic Content asset. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: delete_magic_content
+  description: Delete a Magic Content asset. Before offering this action or requesting its inputs, check
+    business permissions. FREE businesses cannot use this tool, regardless of individual feature rows.
+    Call check_business_tool_access before collecting inputs. Show any grace-period warning and verified
+    resubscribe link before continuing, and never proceed when access is blocked.
+- name: generate_magic_content
+  description: Generate a Magic Content asset from a selected prompt. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: toggle_magic_content_subtitle
+  description: Enable or disable subtitles on a Magic Content asset. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: reuse_magic_content
+  description: Reuse an existing Magic Content asset. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_magic_content_versions
+  description: List versions for a Magic Content asset. Before offering this action or requesting its
+    inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: edit_magic_content
+  description: Edit a Magic Content asset using a direction prompt. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: batch_get_magic_contents
+  description: Batch get Magic Content assets for a community. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_ai_cofounder_chats
+  description: List AI Cofounder chats for a managed community. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: create_ai_cofounder_chat
+  description: Create a signed AI Cofounder chat. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: list_ai_cofounder_messages
+  description: List messages for an AI Cofounder chat. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: send_ai_cofounder_message
+  description: Send a signed message to an AI Cofounder chat. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_ai_cofounder_template_version
+  description: Get an AI Cofounder template for a specific version. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: create_ai_cofounder_template_version
+  description: Create a new AI Cofounder template version. Before offering this action or requesting its
+    inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_ai_cofounder_template
+  description: Update an AI Cofounder template. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: batch_get_ai_cofounder_templates
+  description: Batch get AI Cofounder templates for a chat. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_processing_fee_preference
+  description: Get whether processing-fee preference is set for a community. Before offering this action
+    or requesting its inputs, check business permissions. FREE businesses cannot use this tool, regardless
+    of individual feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period
+    warning and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_processing_fee_preference
+  description: Update whether a community passes processing fees on. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_payment_fee_rate
+  description: Get payment fee rate for a community purchase type. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: update_business_currency
+  description: Update a managed community base currency. Business and community refer to the same thing
+    and are interchangeable. Before offering this action or requesting its inputs, check business permissions.
+    FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: update_community_currency
+  description: Update a managed community base currency. Business and community refer to the same thing
+    and are interchangeable. Before offering this action or requesting its inputs, check business permissions.
+    FREE businesses cannot use this tool, regardless of individual feature rows. Call check_business_tool_access
+    before collecting inputs. Show any grace-period warning and verified resubscribe link before continuing,
+    and never proceed when access is blocked.
+- name: claim_business_plan
+  description: Claim the available community plan benefit for a managed community. Business and community
+    refer to the same thing and are interchangeable. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: claim_community_plan
+  description: Claim the available community plan benefit for a managed community. Business and community
+    refer to the same thing and are interchangeable. Before offering this action or requesting its inputs,
+    check business permissions. FREE businesses cannot use this tool, regardless of individual feature
+    rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning and
+    verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: get_wallet_balance
+  description: Get wallet balance for a community and the authenticated learner.
+- name: get_plan_prices
+  description: Get plan prices for a community.
+- name: create_onboarded_business
+  description: Create a generated Nas.com onboarding session and branding from a host-derived description,
+    optionally using an uploaded onboarding image. Authenticated callers also receive a draft community;
+    anonymous callers carry the onboardingSessionObjectId into checkout.
+- name: get_onboarding_plan_options
+  description: Get complete live Pro and Platinum benefits, prices, billing cycles, fees, trials, and
+    discounts. Display only PRO and PLATINUM monthly or yearly options, ask the user to select a plan
+    type and period, and carry the returned priceId unchanged.
+- name: generate_plan_checkout_link
+  description: Validate a selected Pro or Platinum price and generate an environment-appropriate Nas.com
+    checkout link for either an existing community or a new onboarding session. This does not start payment
+    or create a subscription.
+- name: prepare_plan_payment
+  description: Prepare an exact live Pro or Platinum quote using the default saved payment method. Display
+    the complete quote, card brand, last four digits, and expiry when present, then ask an explicit yes/no
+    question before calling confirmation. Preparation never confirms or charges.
+- name: confirm_plan_payment
+  description: Confirm the pending saved-method plan payment only after the user explicitly approved the
+    displayed prepared quote. Revalidates the quote and default method, checks the original signup, sends
+    at most one confirmation request, and never retries an ambiguous charge.
+- name: change_plan
+  description: Change a community plan. Requires confirm set to CHANGE_PLAN.
+- name: change_plan_tier
+  description: Create a signed plan tier change. Requires confirm set to CHANGE_TIER.
+- name: confirm_plan_tier_change
+  description: Confirm a signed plan tier change. Requires confirm set to CONFIRM_TIER_CHANGE.
+- name: preview_plan_cancellation
+  description: Preview plan cancellation impact for a community.
+- name: cancel_plan
+  description: Cancel a community plan. Requires confirm set to CANCEL_PLAN.
+- name: revoke_plan_cancellation
+  description: Revoke a scheduled plan cancellation. Requires confirm set to REVOKE_CANCELLATION.
+- name: delete_plan
+  description: Delete/cancel a community plan through the legacy plan endpoint. Requires confirm set to
+    DELETE_PLAN.
+- name: revoke_plan_change
+  description: Revoke a scheduled plan change. Requires confirm set to REVOKE_PLAN_CHANGE.
+- name: list_plan_cancellation_reasons
+  description: List available plan cancellation reasons.
+- name: get_plan_info
+  description: Get current plan information for a managed community.
+- name: get_unified_plan_prices
+  description: Get unified plan prices and optional payment methods for a community.
+- name: list_auto_applicable_plan_discounts
+  description: List auto-applicable plan discounts for a community or referral code.
+- name: get_unified_plan_fee_structures
+  description: Get unified plan fee structures for a community.
+- name: update_plan_payment_method
+  description: Update a community plan payment method. Requires confirm set to UPDATE_PLAN_PAYMENT_METHOD.
+- name: update_plan_client_info
+  description: Update plan client contact information for a community.
+- name: list_business_base_currencies
+  description: List currencies supported as community base currencies. Business and community refer to
+    the same thing and are interchangeable.
+- name: list_community_base_currencies
+  description: List currencies supported as community base currencies. Business and community refer to
+    the same thing and are interchangeable.
+- name: list_payout_currencies
+  description: List currencies supported for payouts.
+- name: calculate_business_price
+  description: Calculate community price totals, fees, and pass-on handling for an item. Business and
+    community refer to the same thing and are interchangeable. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: calculate_community_price
+  description: Calculate community price totals, fees, and pass-on handling for an item. Business and
+    community refer to the same thing and are interchangeable. Before offering this action or requesting
+    its inputs, check business permissions. FREE businesses cannot use this tool, regardless of individual
+    feature rows. Call check_business_tool_access before collecting inputs. Show any grace-period warning
+    and verified resubscribe link before continuing, and never proceed when access is blocked.
+- name: check_business_tool_access
+  description: Check whether a protected business action is available before offering it or requesting
+    its inputs. For grace-period access, show the warning and verified resubscribe link before continuing.
+    Never proceed when this preflight blocks the action.
 manifests:
 - https://nas.com/.well-known/mcp.json
 - https://nas.com/.well-known/mcp/manifest.json
@@ -73,3 +2318,4 @@ tool_quality:
   scored: false
   note: Facts from the saved tools/list capture (mcp_tool_quality.py); recorded, not scored. Checks learned
     from Glimind's agent-readiness audit.
+tools_count: 423
